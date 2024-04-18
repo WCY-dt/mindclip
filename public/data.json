@@ -1,0 +1,12 @@
+{
+    "websites": [
+        {
+            "title": "GitHub",
+            "url": "https://github.com"
+        },
+        {
+            "title": "Stack Overflow",
+            "url": "https://stackoverflow.com"
+        }
+    ]
+}
