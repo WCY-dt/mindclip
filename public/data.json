@@ -2,11 +2,44 @@
     "websites": [
         {
             "title": "GitHub",
-            "url": "https://github.com"
+            "category": "app",
+            "url": "https://github.com",
+            "description": "A web-based Git repository hosting service.",
+            "detail": "GitHub is a development platform inspired by the way you work. From open source to business, you can host and review code, manage projects, and build software alongside millions of other developers.",
+            "links": [
+                {
+                    "title": "GitHub Pages",
+                    "url": "https://pages.github.com"
+                },
+                {
+                    "title": "GitHub Desktop",
+                    "url": "https://desktop.github.com"
+                }
+            ]
         },
         {
             "title": "Stack Overflow",
-            "url": "https://stackoverflow.com"
+            "category": "app",
+            "url": "https://stackoverflow.com",
+            "description": "A question and answer site for professional and enthusiast programmers.",
+            "detail": "Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge, and build their careers.",
+            "links": [
+                {
+                    "title": "Stack Overflow Jobs",
+                    "url": "https://stackoverflow.com/jobs"
+                }
+            ]
+        }
+    ],
+
+    "documents": [],
+
+    "inspirations": [
+        {
+            "title": "MindClip",
+            "category": "software",
+            "description": "A simple and easy-to-use note-taking app.",
+            "detail": "MindClip is a simple and easy-to-use note-taking app that helps you organize your thoughts and ideas. It's perfect for students, teachers, and professionals who need to keep track of their notes and ideas."
         }
     ]
 }
