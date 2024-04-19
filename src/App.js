@@ -21,7 +21,7 @@ function App() {
           ))}
         </ul>
       </nav>
-      <Router>
+      <Router basename="/mindclip">
         <div className="App">
           <header className="App-header">
             <Routes>
