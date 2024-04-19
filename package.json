@@ -2,7 +2,7 @@
   "name": "mindclip",
   "version": "0.1.1",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://wcy-dt.github.io/mindclip",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
