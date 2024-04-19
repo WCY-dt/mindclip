@@ -39,7 +39,7 @@ function LinkCard({ item }) {
   return (
     <a
       className="link-card"
-      href={item.url ? item.url : '/#'}
+      href={item.url ? item.url : '#'}
       target="_blank"
       rel="noopener noreferrer"
       id={item.title}
@@ -50,7 +50,7 @@ function LinkCard({ item }) {
         </div>
         <div className="link-card-icon">
           <img
-            src={`https://www.google.com/s2/favicons?sz=32&domain=${item.url ? new URL(item.url).hostname : 'ch3nyang.top'}`}
+            src={`https://www.google.com/s2/favicons?sz=64&domain=${item.url ? new URL(item.url).hostname : 'ch3nyang.top'}`}
             alt="favicon"
             className="link-card-icon-img"
           />
