@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mindclip/static/css/main.4417989d.css",
-    "main.js": "/mindclip/static/js/main.ddb5069a.js",
+    "main.js": "/mindclip/static/js/main.025363f7.js",
     "static/js/453.2aeb2888.chunk.js": "/mindclip/static/js/453.2aeb2888.chunk.js",
     "index.html": "/mindclip/index.html",
     "main.4417989d.css.map": "/mindclip/static/css/main.4417989d.css.map",
-    "main.ddb5069a.js.map": "/mindclip/static/js/main.ddb5069a.js.map",
+    "main.025363f7.js.map": "/mindclip/static/js/main.025363f7.js.map",
     "453.2aeb2888.chunk.js.map": "/mindclip/static/js/453.2aeb2888.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4417989d.css",
-    "static/js/main.ddb5069a.js"
+    "static/js/main.025363f7.js"
   ]
 }
