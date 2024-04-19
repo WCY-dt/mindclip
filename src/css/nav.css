@@ -25,13 +25,13 @@
     padding: 10px;
 }
 
-.App-nav-item a {
+.App-nav-item * {
     color: #000000;
     text-decoration: none;
     text-transform: capitalize;
 }
 
-.App-nav-item a:hover {
+.App-nav-item *:hover {
     color: #000000;
     text-decoration: underline;
 }
