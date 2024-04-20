@@ -31,6 +31,19 @@ function Clusters({ dataKey, searchTerm, setSearchTerm }) {
     setSearchTerm('');
   };
 
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.keyCode === 27) {
+        handleClearFilter();
+      }
+    };
+    window.addEventListener('keydown', handleEsc);
+
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, []);
+
   return (
     <>
       <h1 className="Clusters-title">{dataKey}</h1>

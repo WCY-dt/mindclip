@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -9,10 +9,18 @@ import './css/footer.css';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
+  const inputRef = useRef();
   
   useEffect(() => {
     localStorage.removeItem('colorMap');
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
   }, []);
+
+  const handleClearFilter = () => {
+    setSearchTerm('');
+  };
 
   const routes = {
     "/tech": "techniques",
@@ -33,8 +41,9 @@ function App() {
           ))}
         </ul>
         <div className="App-nav-search">
-          <Icon className="App-nav-search-icon" icon="akar-icons:search" />
+          {searchTerm ? <Icon className="App-nav-search-icon" icon="ci:close-md" onClick={handleClearFilter} /> : <Icon className="App-nav-search-icon" icon="ci:filter-outline" />}
           <input 
+            ref={inputRef}
             className="App-nav-search-input" 
             type="text" 
             placeholder="Search something..."
