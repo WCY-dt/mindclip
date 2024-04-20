@@ -4,8 +4,45 @@
 }
 
 .Clusters-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    justify-items: stretch;
     padding: 20px;
+    gap: 20px;
+}
+
+.Clusters-list > * {
+    flex: 0 0 350px;
+    height: 375px;
+    max-width: 100%;
+}
+
+.Clusters-cancel-filter {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+
+    border: none;
+    background-color: #000;
+    color: #fff;
+    font-size: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    opacity: 0.4;
+    transition: opacity 0.3s;
+}
+
+.Clusters-cancel-filter:hover {
+    opacity: 1;
 }

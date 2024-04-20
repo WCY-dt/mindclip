@@ -32,9 +32,14 @@ function getContrastColor(color) {
   return (yiq >= 128) ? 'black' : 'white';
 }
 
-function LinkCard({ item }) {
+function LinkCard({ item, setSelectedCategory }) {
   const backgroundColor = getBackgroundColor(item.category);
   const textColor = getContrastColor(backgroundColor);
+
+  const handleCategoryClick = (e) => {
+    e.preventDefault();
+    setSelectedCategory(item.category);
+  };
 
   return (
     <a
@@ -45,7 +50,7 @@ function LinkCard({ item }) {
       id={item.title}
     >
       <div className="link-card-left">
-        <div className="link-card-category" style={{ backgroundColor, color: textColor }}>
+        <div className="link-card-category" style={{ backgroundColor, color: textColor }} onClick={handleCategoryClick}>
           {item.category ? item.category : 'UNKNOWN'}
         </div>
         <div className="link-card-icon">

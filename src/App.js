@@ -8,8 +8,8 @@ function App() {
   localStorage.removeItem('colorMap');
 
   const routes = {
-    "/web": "websites",
-    "/doc": "documents",
+    "/tech": "techniques",
+    "/opi": "opinions",
     "/ins": "inspirations"
   };
 
@@ -26,7 +26,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Routes>
-            <Route exact path="/" element={<Cluster dataKey="websites" />} />
+            <Route exact path="/" element={<Cluster dataKey="techniques" />} />
             {Object.entries(routes).map(([path, element]) => (
               <Route path={path} element={<Cluster dataKey={element} />} />
             ))}

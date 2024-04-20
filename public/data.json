@@ -1,8 +1,8 @@
 {
-    "websites": [
+    "techniques": [
         {
             "title": "GitHub",
-            "category": "app",
+            "category": "git",
             "url": "https://github.com",
             "description": "A web-based Git repository hosting service.",
             "detail": "GitHub is a development platform inspired by the way you work. From open source to business, you can host and review code, manage projects, and build software alongside millions of other developers.",
@@ -19,7 +19,7 @@
         },
         {
             "title": "Stack Overflow",
-            "category": "app",
+            "category": "ask",
             "url": "https://stackoverflow.com",
             "description": "A question and answer site for professional and enthusiast programmers.",
             "detail": "Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge, and build their careers.",
@@ -29,10 +29,75 @@
                     "url": "https://stackoverflow.com/jobs"
                 }
             ]
+        },
+        {
+            "title": "CodePen",
+            "category": "app",
+            "url": "https://codepen.io",
+            "description": "An online community for testing and showcasing user-created HTML, CSS and JavaScript code snippets.",
+            "detail": "CodePen is a social development environment for front-end designers and developers. It's the best place to build and deploy a website, show off your work, build test cases, and find inspiration.",
+            "links": [
+                {
+                    "title": "CodePen Projects",
+                    "url": "https://codepen.io/projects"
+                }
+            ]
+        },
+        {
+            "title": "JSFiddle",
+            "category": "app",
+            "url": "https://jsfiddle.net",
+            "description": "An online community for testing and showcasing user-created HTML, CSS and JavaScript code snippets.",
+            "detail": "JSFiddle is an online community for testing and showcasing user-created HTML, CSS and JavaScript code snippets. It's a great tool for quickly testing and sharing code snippets with others.",
+            "links": [
+                {
+                    "title": "JSFiddle Projects",
+                    "url": "https://jsfiddle.net/user/projects"
+                }
+            ]
+        },
+        {
+            "title": "CodeSandbox",
+            "category": "app",
+            "url": "https://codesandbox.io",
+            "description": "An online code editor and prototyping tool for building web applications.",
+            "detail": "CodeSandbox is an online code editor and prototyping tool for building web applications. It's a great tool for quickly testing and sharing code snippets with others.",
+            "links": [
+                {
+                    "title": "CodeSandbox Templates",
+                    "url": "https://codesandbox.io/templates"
+                }
+            ]
+        },
+        {
+            "title": "Glitch",
+            "category": "app",
+            "url": "https://glitch.com",
+            "description": "A collaborative coding platform for building web apps.",
+            "detail": "Glitch is a collaborative coding platform for building web apps. It's a great tool for quickly testing and sharing code snippets with others.",
+            "links": [
+                {
+                    "title": "Glitch Templates",
+                    "url": "https://glitch.com/templates"
+                }
+            ]
+        },
+        {
+            "title": "Repl.it",
+            "category": "app",
+            "url": "https://repl.it",
+            "description": "An online code editor and compiler for building web applications.",
+            "detail": "Repl.it is an online code editor and compiler for building web applications. It's a great tool for quickly testing and sharing code snippets with others.",
+            "links": [
+                {
+                    "title": "Repl.it Templates",
+                    "url": "https://repl.it/templates"
+                }
+            ]
         }
     ],
 
-    "documents": [],
+    "opinions": [],
 
     "inspirations": [
         {
