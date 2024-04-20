@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Icon } from '@iconify/react';
 import LinkCard from './linkCard';
 import '../css/clusters.css';
@@ -26,10 +26,10 @@ function Clusters({ dataKey, searchTerm, setSearchTerm }) {
       });
   }, [dataKey, selectedCategory, searchTerm]);
 
-  const handleClearFilter = () => {
+  const handleClearFilter = useCallback(() => {
     setSelectedCategory(null);
     setSearchTerm('');
-  };
+  }, [setSelectedCategory, setSearchTerm]);
 
   useEffect(() => {
     const handleEsc = (event) => {
@@ -42,7 +42,7 @@ function Clusters({ dataKey, searchTerm, setSearchTerm }) {
     return () => {
       window.removeEventListener('keydown', handleEsc);
     };
-  }, []);
+  }, [handleClearFilter]);
 
   return (
     <>
