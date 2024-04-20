@@ -13,7 +13,7 @@
     gap: 20px;
 }
 
-.Clusters-list > * {
+.Clusters-list>* {
     flex: 0 0 350px;
     height: 375px;
     max-width: 100%;
@@ -45,4 +45,12 @@
 
 .Clusters-cancel-filter:hover {
     opacity: 1;
+}
+
+@media (max-width: 800px) {
+    .Clusters-cancel-filter {
+        opacity: 0.8;
+        bottom: 30px;
+        right: 30px;
+    }
 }

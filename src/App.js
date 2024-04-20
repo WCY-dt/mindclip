@@ -10,6 +10,9 @@ import './css/footer.css';
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const inputRef = useRef();
+
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
   
   useEffect(() => {
     localStorage.removeItem('colorMap');
@@ -52,8 +55,34 @@ function App() {
           />
         </div>
       </nav>
+      <nav className="App-nav-mobile">
+        <div className="App-nav-title">
+          <img src="favicon.ico" alt="favicon" className="App-nav-title-icon" />
+          <p className="App-nav-title-text">MindClip</p>
+        </div>
+        <button className="App-nav-button" onClick={toggleMenu}>{isOpen ? <Icon icon="ci:window-close" /> : <Icon icon="ci:window-sidebar" />}</button>
+        {isOpen && (
+          <div className="App-nav-menu">
+            <div className="App-nav-search">
+              {searchTerm ? <Icon className="App-nav-search-icon" icon="ci:close-md" onClick={handleClearFilter} /> : <Icon className="App-nav-search-icon" icon="ci:filter-outline" />}
+              <input
+                ref={inputRef}
+                className="App-nav-search-input"
+                type="text"
+                placeholder="Search something..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+            {Object.entries(routes).map(([path, element]) => (
+              <li className="App-nav-item"><Link to={path}>{element}</Link></li>
+            ))}
+          </div>
+        )}
+      </nav>
 
       <div className="App">
+        <div className={`overlay ${isOpen ? 'open' : ''}`} onClick={toggleMenu}></div>
         <header className="App-header">
           <Routes>
             <Route exact path="/" element={<Cluster dataKey="techniques" searchTerm={searchTerm} setSearchTerm={setSearchTerm}  />} />
