@@ -1,0 +1,27 @@
+.App-footer {
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.App-footer-text {
+    margin: 0;
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #757575;
+}
+
+.App-footer-text a {
+    text-decoration: none;
+    color: #000;
+}
+
+.App-footer-text a:hover {
+    text-decoration: underline;
+}

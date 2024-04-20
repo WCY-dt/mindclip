@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Cluster from './js/clusters';
 import './css/App.css';
 import './css/nav.css';
+import './css/footer.css';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -53,6 +54,11 @@ function App() {
           </Routes>
         </header>
       </div>
+
+      <footer className="App-footer">
+        <p className="App-footer-text">Copyright©2024 <a href="https://ch3nyang.top/">ch3nyang</a>. All rights reserved.</p>
+        <p className="App-footer-text">Open source on <a href="https://github.com/WCY-dt/mindclip">GitHub</a>.</p>
+      </footer>
     </Router>
   );
 }
