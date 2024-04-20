@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react';
 import LinkCard from './linkCard';
 import '../css/clusters.css';
 
-function Clusters({ dataKey }) {
+function Clusters({ dataKey, searchTerm, setSearchTerm }) {
   const [clusters, setClusters] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -14,20 +14,27 @@ function Clusters({ dataKey }) {
         let filteredClusters = data[dataKey];
         if (selectedCategory) {
           filteredClusters = filteredClusters.filter(cluster => cluster.category === selectedCategory);
-          // console.log(filteredClusters);
+        }
+        if (searchTerm) {
+          filteredClusters = filteredClusters.filter(cluster =>
+            Object.values(cluster).some(value =>
+              value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+            )
+          );
         }
         setClusters(filteredClusters);
       });
-  }, [dataKey, selectedCategory]);
+  }, [dataKey, selectedCategory, searchTerm]);
 
   const handleClearFilter = () => {
     setSelectedCategory(null);
+    setSearchTerm('');
   };
 
   return (
     <>
       <h1 className="Clusters-title">{dataKey}</h1>
-      {selectedCategory && (
+      {(selectedCategory || searchTerm) && (
         <button className="Clusters-cancel-filter" onClick={handleClearFilter}><Icon icon="ci:filter-off-outline" /></button>
       )}
       <div className="Clusters-list">
@@ -40,7 +47,7 @@ function Clusters({ dataKey }) {
             />
           ))
         ) : (
-          <p>Nothing here. Add one now!</p>
+          <p>{(selectedCategory || searchTerm) ? "No results." : "Nothing here. Add one now!"}</p>
         )}
       </div>
     </>

@@ -1,21 +1,50 @@
 .App-nav {
     position: fixed;
     top: 0;
-    width: 100%;
+    width: calc(100% - 40px);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     background-color: #ffffff;
 }
 
+.App-nav-title {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 5px;
+    height: 100%;
+}
+
+.App-nav-title-icon {
+    height: 40px;
+}
+
+.App-nav-title-text {
+    font-size: 1.5em;
+    font-weight: 900;
+    margin: 0;
+}
+
 .App-nav-list {
+    position: fixed;
+    top: 10px;
+    left: 20%;
+    width: 60%;
+    height: 40px;
+
+
+    text-align: center;
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
     font-size: 1.5em;
     font-weight: 700;
@@ -34,4 +63,33 @@
 .App-nav-item *:hover {
     color: #000000;
     text-decoration: underline;
+}
+
+.App-nav-search {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 5px;
+    height: 100%;
+    background-color: #f0f0f0;
+
+    border-radius: 5px;
+
+    padding: 10px;
+}
+
+.App-nav-search-icon {
+    font-size: 1.5em;
+}
+
+.App-nav-search-input {
+    border: none;
+    background-color: #f0f0f0;
+    font-size: 1.2em;
+    font-weight: 700;
+    width: 200px;
+}
+
+.App-nav-search-input:focus {
+    outline: none;
 }
