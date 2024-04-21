@@ -1,110 +1,266 @@
 {
     "techniques": [
         {
-            "title": "GitHub",
-            "category": "git",
-            "url": "https://github.com",
-            "description": "A web-based Git repository hosting service.",
-            "detail": "GitHub is a development platform inspired by the way you work. From open source to business, you can host and review code, manage projects, and build software alongside millions of other developers.",
+            "title": "Linux内核教学",
+            "category": "OS",
+            "url": "https://linux-kernel-labs-zh.xyz/",
+            "description": "一系列Linux内核主题的课程和实验。",
+            "detail": "本文档包含一系列 Linux 内核主题的课程和实验。课程侧重于理论和 Linux 内核探索。实验侧重于设备驱动程序主题，文档风格类似“howto”。每个主题分两部分：主题概述，包含概述、主要抽象概念、简单示例和对 API 的指引……",
             "links": [
                 {
-                    "title": "GitHub Pages",
-                    "url": "https://pages.github.com"
+                    "title": "GitHub仓库",
+                    "url": "https://github.com/linux-kernel-labs-zh"
                 },
                 {
-                    "title": "GitHub Desktop",
-                    "url": "https://desktop.github.com"
+                    "title": "OCW - Sisteme de Operare 2",
+                    "url": "http://ocw.cs.pub.ro/courses/so2"
                 }
             ]
         },
         {
-            "title": "Stack Overflow",
-            "category": "ask",
-            "url": "https://stackoverflow.com",
-            "description": "A question and answer site for professional and enthusiast programmers.",
-            "detail": "Stack Overflow is the largest, most trusted online community for developers to learn, share their programming knowledge, and build their careers.",
+            "title": "I accidentally built a meme search engine",
+            "category": "AI",
+            "url": "https://harper.blog/2024/04/12/i-accidentally-built-a-meme-search-engine/",
+            "description": "学习clip/siglip和矢量编码图像。",
+            "detail": "I built a meme search engine using siglip/CLIP and vector encoding images. It was fun and I learned a lot.I have been building a lot of applied AI tools for a while. One of the components that always seemed the most magical has always been vector embeddings. Word2Vec and the like have straight blown my mind. It is like magic..."
+        },
+        {
+            "title": "Rare: Rust A Riscv Emulator",
+            "category": "OS",
+            "url": "https://siriusdemon.github.io/Rare/",
+            "description": "使用 Rust 编写 RISC-V 模拟器教程。",
+            "detail": "本教程基于Asami所写的模拟器教程。虽然作者只写到第三章，但她已经事先将所有的代码划分成了十个章节。所以看着代码也能够一步一步地构建出这个模拟器。最终的模拟器可以运行 xv6 操作系统……",
             "links": [
                 {
-                    "title": "Stack Overflow Jobs",
-                    "url": "https://stackoverflow.com/jobs"
+                    "title": "GitHub仓库",
+                    "url": "https://github.com/siriusdemon/Rare"
+                },
+                {
+                    "title": "Asami教程的GitHub仓库",
+                    "url": "https://book.rvemu.app/"
+                },
+                {
+                    "title": "RISC-V",
+                    "url": "https://github.com/d0iasm/rvemu-for-book"
                 }
             ]
         },
         {
-            "title": "CodePen",
-            "category": "app",
-            "url": "https://codepen.io",
-            "description": "An online community for testing and showcasing user-created HTML, CSS and JavaScript code snippets.",
-            "detail": "CodePen is a social development environment for front-end designers and developers. It's the best place to build and deploy a website, show off your work, build test cases, and find inspiration.",
+            "title": "Learn eBPF Tracing: Tutorial and Examples",
+            "category": "eBPF",
+            "url": "https://www.brendangregg.com/blog/2019-01-01/learn-ebpf-tracing.html",
+            "description": "eBPF tracing学习，包括运行和开发BCC工具、开发bpftrace工具。",
+            "detail": "At the Linux Plumber's conference there were at least 24 talks on eBPF. It has quickly become not just an invaluable technology, but also an in-demand skill. Perhaps you'd like a new year's resolution: learn eBPF...",
             "links": [
                 {
-                    "title": "CodePen Projects",
-                    "url": "https://codepen.io/projects"
+                    "title": "更多关于eBPF tracing tools的内容",
+                    "url": "http://www.brendangregg.com/ebpf.html"
                 }
             ]
         },
         {
-            "title": "JSFiddle",
-            "category": "app",
-            "url": "https://jsfiddle.net",
-            "description": "An online community for testing and showcasing user-created HTML, CSS and JavaScript code snippets.",
-            "detail": "JSFiddle is an online community for testing and showcasing user-created HTML, CSS and JavaScript code snippets. It's a great tool for quickly testing and sharing code snippets with others.",
+            "title": "BPF入门系列",
+            "category": "eBPF",
+            "url": "https://www.ebpf.top/post/ebpf_intro/",
+            "description": "基本包括了eBPF的整条学习路径。",
+            "detail": "",
             "links": [
                 {
-                    "title": "JSFiddle Projects",
-                    "url": "https://jsfiddle.net/user/projects"
+                    "title": "1 - eBPF技术简介",
+                    "url": "https://www.ebpf.top/post/ebpf_intro/"
+                },
+                {
+                    "title": "2 - BPF 学习路径总结",
+                    "url": "https://www.ebpf.top/post/ebpf_learn_path/"
+                },
+                {
+                    "title": "3 - BPF 环境搭建",
+                    "url": "https://www.ebpf.top/post/ebpf_c_env/"
+                },
+                {
+                    "title": "4 - 如何在 BPF 程序中正确地按照 PID 过滤？",
+                    "url": "https://www.ebpf.top/post/ebpf_prog_pid_filter/"
+                },
+                {
+                    "title": "5 - 基于 eBPF 实现容器运行时安全",
+                    "url": "https://www.ebpf.top/post/ebpf_container_security/"
+                },
+                {
+                    "title": "6 - BPF 环形缓冲区",
+                    "url": "https://www.ebpf.top/post/bpf_ring_buffer/"
+                },
+                {
+                    "title": "7 - 使用 ebpf 实时持续跟踪进程文件记录",
+                    "url": "https://www.ebpf.top/post/ebpf_trace_file_open/"
+                },
+                {
+                    "title": "更多...",
+                    "url": "https://www.ebpf.top/categories/foundation/page/3/"
                 }
             ]
         },
         {
-            "title": "CodeSandbox",
-            "category": "app",
-            "url": "https://codesandbox.io",
-            "description": "An online code editor and prototyping tool for building web applications.",
-            "detail": "CodeSandbox is an online code editor and prototyping tool for building web applications. It's a great tool for quickly testing and sharing code snippets with others.",
+            "title": "The Return of the Frame Pointers",
+            "category": "linux",
+            "url": "https://www.brendangregg.com/blog/2024-03-17/the-return-of-the-frame-pointers.html",
+            "description": "如何在考虑帧指针的情况下进行性能调优。",
+            "detail": "Sometimes debuggers and profilers are obviously broken, sometimes it's subtle and hard to spot. This is pretty common and usually goes unnoticed as the flame graph looks ok at first glance. But there are 15% of samples on the left, above unknown, that are in the wrong place and missing frames..."
+        },
+        {
+            "title": "Let's build the GPT Tokenizer",
+            "category": "LLM",
+            "url": "https://www.youtube.com/watch?v=zduSFxRajkE&t=29s&ab_channel=AndrejKarpathy",
+            "description": "实战编写GPT tokenizer的视频。",
+            "detail": "The Tokenizer is a necessary and pervasive component of Large Language Models (LLMs), where it translates between strings and tokens (text chunks). Tokenizers are a completely separate stage of the LLM pipeline...",
             "links": [
                 {
-                    "title": "CodeSandbox Templates",
-                    "url": "https://codesandbox.io/templates"
+                    "title": "Google Colab",
+                    "url": "https://colab.research.google.com/drive/1y0KnCFZvGVf_odSfcNAws6kcDD7HsI0L?usp=sharing"
+                },
+                {
+                    "title": "GitHub仓库",
+                    "url": "https://github.com/karpathy/minbpe"
                 }
             ]
         },
         {
-            "title": "Glitch",
-            "category": "app",
-            "url": "https://glitch.com",
-            "description": "A collaborative coding platform for building web apps.",
-            "detail": "Glitch is a collaborative coding platform for building web apps. It's a great tool for quickly testing and sharing code snippets with others.",
+            "title": "epoll: The API that powers the modern internet",
+            "category": "linux",
+            "url": "https://darkcoding.net/software/epoll-the-api-that-powers-the-modern-internet/",
+            "description": "epoll讲解。",
+            "detail": "You used epoll to fetch this blog post. For almost anything you do on the Internet the server will be running Linux and it will use epoll to receive and answer your request in a timely and affordable manner...",
             "links": [
                 {
-                    "title": "Glitch Templates",
-                    "url": "https://glitch.com/templates"
+                    "title": "Linux manual",
+                    "url": "https://man7.org/linux/man-pages/man7/epoll.7.html"
                 }
             ]
         },
         {
-            "title": "Repl.it",
-            "category": "app",
-            "url": "https://repl.it",
-            "description": "An online code editor and compiler for building web applications.",
-            "detail": "Repl.it is an online code editor and compiler for building web applications. It's a great tool for quickly testing and sharing code snippets with others.",
+            "title": "Web Components Eliminate JavaScript Framework Lock-in",
+            "category": "Frontend",
+            "url": "https://jakelazaroff.com/words/web-components-eliminate-javascript-framework-lock-in/",
+            "description": "使用Web组件（React）编写Todo应用的实例。",
+            "detail": "We’ve seen a lot of great posts about web components lately. Many have focused on the burgeoning HTML web components pattern, which eschews shadow DOM in favor of progressively enhancing existing markup..."
+        },
+        {
+            "title": "Learn Modern C++",
+            "category": "C++",
+            "url": "https://learnmoderncpp.com/",
+            "description": "学习C++标准。针对每条标准都有一篇文章。",
+            "detail": "This site contains an original, self-contained guide to learning the fundamentals of Modern C++, intended to be the basis of a self-study course. Some Chapters depend upon material presented in earlier ones, so studying them linearly is recommended. There are also regular posts (accessible from the front page) which cover topics or areas of C++ not covered in the course..."
+        },
+        {
+            "title": "The Surprising Things That CSS Can Animate",
+            "category": "CSS",
+            "url": "https://codersblock.com/blog/the-surprising-things-that-css-can-animate/",
+            "description": "CSS动画的奇技淫巧。",
+            "detail": "When you think of animating CSS properties, which ones come to mind? I recently started wondering about the ones that don’t come to mind — properties that aren’t typically associated with animation, but turn out to be animatable..."
+        },
+        {
+            "title": "Inside .git",
+            "category": "git",
+            "url": "https://jvns.ca/blog/2024/01/26/inside-git/",
+            "description": "讲解git内部实现原理。",
             "links": [
                 {
-                    "title": "Repl.it Templates",
-                    "url": "https://repl.it/templates"
+                    "title": "How HEAD works in git",
+                    "url": "https://jvns.ca/blog/2024/03/08/how-head-works-in-git/"
+                },
+                {
+                    "title": "Popular git config options",
+                    "url": "https://jvns.ca/blog/2024/02/16/popular-git-config-options/"
+                },
+                {
+                    "title": "Dealing with diverged git branches",
+                    "url": "https://jvns.ca/blog/2024/02/01/dealing-with-diverged-git-branches/"
+                },
+                {
+                    "title": "Inside .git",
+                    "url": "https://jvns.ca/blog/2024/01/26/inside-git/"
+                },
+                {
+                    "title": "Do we think of git commits as diffs, snapshots, and/or histories?",
+                    "url": "https://jvns.ca/blog/2024/01/05/do-we-think-of-git-commits-as-diffs--snapshots--or-histories/"
+                },
+                {
+                    "title": "git branches: intuition & reality",
+                    "url": "https://jvns.ca/blog/2023/11/23/branches-intuition-reality/"
+                },
+                {
+                    "title": "更多...",
+                    "url": "https://jvns.ca/#git"
                 }
             ]
+        },
+        {
+            "title": "现代 C++ 教程：高速上手 C++ 11/14/17/20",
+            "category": "C++",
+            "url": "https://changkun.de/modern-cpp/zh-cn/00-preface/",
+            "description": "C++ 11/14/17/20标准教程。",
+            "detail": "C++ 是一个用户群体相当大的语言。从 C++98 的出现到 C++11 的正式定稿经历了长达十年多之久的积累。C++14/17 则是作为对 C++11 的重要补充和优化，C++20 则将这门语言领进了现代化的大门……",
+            "links": [
+                {
+                    "title": "GitHub仓库",
+                    "url": "https://changkun.de/modern-cpp/code/"
+                },
+                {
+                    "title": "习题答案",
+                    "url": "https://changkun.de/modern-cpp/exercises"
+                }
+            ]
+        },
+        {
+            "title": "CSS CheatSheet",
+            "category": "CSS",
+            "url": "https://htmlcheatsheet.com/css/?ref=dailydev",
+            "description": "互动式CSS CheatSheet。",
+            "detail": "CSS Cheat Sheet contains the most common style snippets: CSS gradient, background, button, font-family, border, radius, box and text shadow generators, color picker and more. All these and other useful web designer tools can be found on a single page..."
+        },
+        {
+            "title": "Building a simple CLI tool with modern Node.js",
+            "category": "Nodejs",
+            "url": "https://evertpot.com/node-changelog-cli-tool/",
+            "description": "使用Node.js编写CLI的教程。",
+            "detail": "The tool should be able to do the following:Reformat changelogs, Add an entry via the command line, Automatically set the release date, Pipe a log of a specific version to STDOUT, so it can be used by other tools...."
         }
     ],
 
-    "opinions": [],
-
-    "inspirations": [
+    "opinions": [
         {
-            "title": "MindClip",
-            "category": "software",
-            "description": "A simple and easy-to-use note-taking app.",
-            "detail": "MindClip is a simple and easy-to-use note-taking app that helps you organize your thoughts and ideas. It's perfect for students, teachers, and professionals who need to keep track of their notes and ideas."
+            "title": "数据统计可视化",
+            "category": "art",
+            "url": "https://twitter.com/nishuang/status/1638194933872877570",
+            "description": "@nishuang #设计参考",
+            "detail": "一组数据、100 套图表。丹麦信息图表设计公司 Ferdio 最近做了尝试，把一组简单的数据（近年来北欧三国世界遗产的数量），用 100 种不同的图表展现出来。除了办公软件里常见那些 graph，他们还利用了很多信息图、数据可视化的设计技巧👏",
+            "links": [
+                {
+                    "title": "链接",
+                    "url": "https://100.datavizproject.com"
+                }
+            ]
+        },
+        {
+            "title": "延迟时间",
+            "category": "tech",
+            "url": "https://twitter.com/HiTw93/status/1780017510303014922",
+            "description": "@HiTW93 #工程师学习",
+            "detail": "这个工具做得挺有趣，程序员应该了解的延迟时间，把常见计算机领域中的延迟时间与不同年份的关系给关联起来了，可以滑动玩玩看，挺有趣，你会发现之前是真的慢。",
+            "links": [
+                {
+                    "title": "链接",
+                    "url": "https://dub.sh/latency"
+                }
+            ]
+        },
+        {
+            "title": "烧椒牛肉拌面",
+            "category": "life",
+            "url": "https://twitter.com/HiFreyy/status/1779472661598618000",
+            "description": "@HiFreyy",
+            "detail": "山姆的这个拌面巨好吃，无限回购的产品，肉酱也特别足"
         }
-    ]
+    ],
+
+    "inspirations": []
 }
