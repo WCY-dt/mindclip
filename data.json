@@ -677,7 +677,28 @@
             "category": "network",
             "url": "https://t.me/somecollections/9",
             "description": "@frostming #share"
+        },
+        {
+            "title": "Howto Read a Paper",
+            "category": "misc",
+            "url": "https://svr-sk818-web.cl.cam.ac.uk/keshav/papers/07/paper-reading.pdf",
+            "description": "@S.Keshav"
+        },
+        {
+            "title": "1985年至2021年的裁判文书全量数据",
+            "category": "collection",
+            "url": "https://twitter.com/435hz/status/1748915823429730790",
+            "description": "@435hz",
+            "detail": "共94.36G。种子下载：MD5:c6aac12ebd697041ba60a8cba9f7326155921fae。磁力链接:magnet:?xt=urn:btih:c6aac12ebd697041ba60a8cba9f7326155921fae。"
+        },
+        {
+            "title": "成功CS人",
+            "category": "misc",
+            "url": "https://twitter.com/cyanvtb/status/1743859906149503271",
+            "description": "@cyanvtb @JXQNHZr1yUAj5Be",
+            "detail": "最近意识到，如果把时间拉到整个人生看，慢个三四年其实并不是那么可怕的事情。如果你能十年如一日的钻研一个技术的话，什么时候开始都不迟。美国打完了仗回来上大学的比比皆是。每个人都有自己的道路，追寻自己喜欢的事情就好了。"
         }
+
     ],
 
     "inspirations": [
@@ -686,6 +707,13 @@
             "category": "collection",
             "url": "https://www.appinn.com/76-apps-cn-better/",
             "description": "一些可供参考的例子。"
+        },
+        {
+            "title": "2024年独立开发，做什么有差异化的事情？",
+            "category": "collection",
+            "url": "https://twitter.com/seclink/status/1770279264933601366",
+            "description": "@seclink",
+            "detail": "编写基础的basic ML in C++。了解及编写 Triton 内核。了解及使用CUDA。"
         }
     ]
 }
