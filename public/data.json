@@ -223,6 +223,391 @@
             "url": "https://evertpot.com/node-changelog-cli-tool/",
             "description": "使用Node.js编写CLI的教程。",
             "detail": "The tool should be able to do the following:Reformat changelogs, Add an entry via the command line, Automatically set the release date, Pipe a log of a specific version to STDOUT, so it can be used by other tools...."
+        },
+        {
+            "title": "Linux 容器底层工作机制：从 500 行 C 代码到生产级容器运行时",
+            "category": "linux",
+            "url": "https://arthurchiao.art/blog/linux-container-and-runtime-zh/",
+            "description": "用C语言实现一个简单的Linux容器。",
+            "detail": "从以docker为代表的Linux容器技术开始进入主流视野，到如今 k8s 一统容器编排领域，容器技术已经在大规模生产环境使用了十年以上。从基础设施层往上看，容器领域仍然在快速发展，新的项目层出不穷……",
+            "links": [
+                {
+                    "title": "GitHub仓库",
+                    "url": "https://github.com/ArthurChiao/arthurchiao.github.io/tree/master/assets/code/linux-container-and-runtime"
+                }
+            ]
+        },
+        {
+            "title": "Python 潮流周刊第一季精华合集",
+            "category": "Python",
+            "url": "https://pythoncat.top/posts/2023-12-11-weekly",
+            "description": "和Python有关的教程、项目、问题、音频。",
+            "detail": "你好，我是猫哥。Python潮流周刊每30期为一季，以下是第1~30期周刊的内容合集，全文共计62K字！为了给大家省流/提升网页加载速度，原周刊中大部分的图片及无关内容均已删除，建议你收藏慢慢看...",
+            "links": [
+                {
+                    "title": "Python 潮流周刊",
+                    "url": "https://github.com/chinesehuazhou/python-weekly"
+                }
+            ]
+        },
+        {
+            "title": "67 Weird Debugging Tricks Your Browser Doesn't Want You to Know",
+            "category": "Frontend",
+            "url": "https://alan.norbauer.com/articles/browser-debugging-tricks",
+            "description": "关于前端到底该如何Debug。",
+            "detail": "A list of useful, not-obvious hacks to get the most out of your browser’s1 debugger. Assumes an intermediate-level-or-higher understanding of the developer tools..."
+        },
+        {
+            "title": "Rust 程序设计语言",
+            "category": "Rust",
+            "url": "https://kaisery.github.io/trpl-zh-cn/title-page.html",
+            "description": "The Rust Programming Language的中文版。相比the book内容更丰富一些。",
+            "detail": "Rust 程序设计语言的本质实际在于赋能：无论你现在编写的是何种代码，Rust 能让你在更为广泛的编程领域走得更远，写出自信。举例来说，那些“系统层面”的工作涉及内存管理、数据表示和并发等底层细节……",
+            "links": [
+                {
+                    "title": "英文版本",
+                    "url": "https://doc.rust-lang.org/stable/book/"
+                }
+            ]
+        },
+        {
+            "title": "Your Cache Headers Could Probably be More Aggressive",
+            "category": "Frontend",
+            "url": "https://macarthur.me/posts/more-aggressive-cache-headers/",
+            "description": "讨论了如何提高静态网站缓存性能。",
+            "detail": "It's common for modern hosts to cache static assets in a flexible, but not most optimal way. Let's explore why that is and what we can do to push cache performance (for some assets) even further..."
+        },
+        {
+            "title": "Information Extraction with Large Language Models - Parsing Unstructured Data with GPT-3",
+            "category": "LLM",
+            "url": "https://marcotm.com/articles/information-extraction-with-large-language-models-parsing-unstructured-data-with-gpt/",
+            "description": "使用GPT-3解析非结构化数据的方法。",
+            "detail": "In the past months, ChatGPT has been dominating the news headlines, and people are both excited..."
+        },
+        {
+            "title": "CSS Wrapped: 2023!",
+            "category": "CSS",
+            "url": "https://developer.chrome.com/blog/css-wrapped-2023#subgrid-live-demo",
+            "description": "2023年主流浏览器新增的CSS功能。",
+            "detail": "From #Interop2023 to many new landings in the CSS and UI space that enable capabilities developers once thought impossible on the web platform. Now, every modern browser supports container queries, subgrid, the :has() selector, and a whole plethora of new color spaces and functions..."
+        },
+        {
+            "title": "IPC",
+            "category": "linux",
+            "url": "https://goodyduru.github.io/",
+            "description": "关于进程间通信(IPC)几种方法的讲解。",
+            "links": [
+                {
+                    "title": "Introduction",
+                    "url": "https://goodyduru.github.io/os/2023/09/08/ipc-introduction.html"
+                },
+                {
+                    "title": "Named Pipes",
+                    "url": "https://goodyduru.github.io/os/2023/09/26/ipc-named-pipes.html"
+                },
+                {
+                    "title": "Unix Domain Sockets",
+                    "url": "https://goodyduru.github.io/os/2023/10/03/ipc-unix-domain-sockets.html"
+                },
+                {
+                    "title": " Unix Signals",
+                    "url": "https://goodyduru.github.io/os/2023/10/05/ipc-unix-signals.html"
+                },
+                {
+                    "title": "Message Queues",
+                    "url": "https://goodyduru.github.io/os/2023/11/13/ipc-message-queues.html"
+                },
+                {
+                    "title": "Shared Memory",
+                    "url": "https://goodyduru.github.io/os/2024/01/31/ipc-shared-memory.html"
+                },
+                {
+                    "title": "Memory Mapped Files",
+                    "url": "https://goodyduru.github.io/os/2024/03/18/ipc-mmap.html"
+                }
+            ]
+        },
+        {
+            "title": "An Interactive Guide to CSS Grid",
+            "category": "CSS",
+            "url": "https://www.joshwcomeau.com/css/interactive-guide-to-grid/",
+            "description": "CSS grid互动教程。",
+            "detail": "CSS Grid is one of the most amazing parts of the CSS language. It gives us a ton of new tools we can use to create sophisticated and fluid layouts. It's also surprisingly complex. It took me quite a while to truly become comfortable with CSS Grid..."
+        },
+        {
+            "title": "Machine Learning for Beginners",
+            "category": "AI",
+            "url": "https://microsoft.github.io/ML-For-Beginners/#/",
+            "description": "微软出品的机器学习教程。",
+            "detail": "Azure Cloud Advocates at Microsoft are pleased to offer a 12-week, 26-lesson curriculum all about Machine Learning. In this curriculum, you will learn about what is sometimes called classic machine learning, using primarily Scikit-learn as a library and avoiding deep learning, which is covered in our forthcoming 'AI for Beginners' curriculum..."
+        },
+        {
+            "title": "Draggable objects",
+            "category": "Frontend",
+            "url": "https://www.redblobgames.com/making-of/draggable/",
+            "description": "如何编写一个可以拖动的组件。",
+            "detail": "Many of my interactive pages have a draggable object. I want the reader to move the object around, and I want the diagram to respond in some way. Here I’ll document the code I use to make this work with both mouse and touch input, using browser features that are widely supported since 2020..."
+        },
+        {
+            "title": "Around The World",
+            "category": "game",
+            "url": "https://frozenfractal.com/blog/tags/around-the-world/",
+            "description": "如何随机生成一个地球。",
+            "links": [
+                {
+                    "title": "Part 1: Continents",
+                    "url": "https://frozenfractal.com/blog/2023/11/2/around-the-world-1-continents/"
+                },
+                {
+                    "title": "Part 2: Plate tectonics",
+                    "url": "https://frozenfractal.com/blog/2023/11/13/around-the-world-2-plate-tectonics/"
+                },
+                {
+                    "title": "Part 3: Hotspots and erosion",
+                    "url": "https://frozenfractal.com/blog/2023/11/20/around-the-world-3-hotspots-erosion/"
+                },
+                {
+                    "title": "Part 4: Basic wind",
+                    "url": "https://frozenfractal.com/blog/2023/12/4/around-the-world-4-basic-wind/"
+                },
+                {
+                    "title": "Part 5: Wind pressure",
+                    "url": "https://frozenfractal.com/blog/2023/12/8/around-the-world-5-wind-pressure/"
+                },
+                {
+                    "title": "Part 6: Wind hacks",
+                    "url": "https://frozenfractal.com/blog/2023/12/12/around-the-world-6-wind-hacks/"
+                },
+                {
+                    "title": "Part 7: Temperature and rain",
+                    "url": "https://frozenfractal.com/blog/2023/12/15/around-the-world-7-temperature-and-rain/"
+                },
+                {
+                    "title": "Part 8: Seasons",
+                    "url": "https://frozenfractal.com/blog/2023/12/19/around-the-world-8-seasons/"
+                },
+                {
+                    "title": "Part 9: Climate",
+                    "url": "https://frozenfractal.com/blog/2023/12/29/around-the-world-9-climates/"
+                },
+                {
+                    "title": "更多...",
+                    "url": "https://frozenfractal.com/blog/tags/around-the-world/"
+                }
+            ]
+        },
+        {
+            "title": "Go, Containers, and the Linux Scheduler",
+            "category": "Go",
+            "url": "https://www.riverphillips.dev/blog/go-cfs/",
+            "description": "如何解决Go在Docker容器中会不受限制地消耗资源。",
+            "detail": "Like many Go developers my applications are usually deployed in containers. When running in container orchestrators it’s important to set CPU limits to ensure that the container doesn’t consume all the CPU on the host..."
+        },
+        {
+            "title": "ByteByteGo Newsletter",
+            "category": "misc",
+            "url": "https://blog.bytebytego.com/",
+            "description": "图解各种技术。",
+            "detail": "Building software is hard. Improve system design skills? Not sure where to begin. Get better? Stay ahead of the curve? Not sure how. The ByteByteGo newsletter is here to help...."
+        },
+        {
+            "title": "你的Python包都装到哪了？",
+            "category": "Python",
+            "url": "https://frostming.com/2019/03-13/where-do-your-packages-go/",
+            "description": "讲解Python的包管理机制。",
+            "detail": "写这篇文章是因为最近在 Python 社区看到，有几个求助频率非常高的问题：我安装了 pip 为什么运行报找不到可执行文件？import module 为什么报 ModuleNotFound？为什么我用 Pycharm 能运行在 cmd 里运行不了？"
+        },
+        {
+            "title": "TSpecial HTTP headers",
+            "category": "HTTP",
+            "url": "https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/special-http-headers",
+            "description": "关于HTTP头的讲解。"
+        },
+        {
+            "title": "How to build an image without the Docker cache",
+            "category": "Docker",
+            "url": "https://depot.dev/blog/docker-build-no-cache",
+            "description": "Docker构建调优方法。",
+            "detail": "Using the Docker build cache speeds up builds by reusing layers from previous builds. But sometimes you want to build an image without the cache. Here's how..."
+        },
+        {
+            "title": "Fundamentals of networking in AWS",
+            "category": "network",
+            "url": "https://medium.com/codenation-engineering/fundamentals-of-networking-in-aws-3ad3d0dc01dd",
+            "description": "云主机中网络相关的问题。",
+            "detail": "People use AWS as a virtual datacenter, so they deploy various services there like EC2 instances, RDS instances, etc.Now, these instances/machines need to live somewhere in the datacenter and typically need to connect to the Internet. This is where VPC comes into the picture..."
+        },
+        {
+            "title": "How to use a Python multiprocessing module",
+            "category": "Python",
+            "url": "https://developers.redhat.com/articles/2023/07/27/how-use-python-multiprocessing-module#",
+            "description": "实现Python多线程的方法。",
+            "detail": "What better way of describing what the module than to pull from the official documentation...",
+            "links": [
+                {
+                    "title": "multiprocessing",
+                    "url": "https://docs.python.org/3/library/multiprocessing.html"
+                }
+            ]
+        },
+        {
+            "title": "Randomness in CSS using trigonometry",
+            "category": "CSS",
+            "url": "https://hypersphere.blog/blog/randomness-in-css-using-trigonometry/",
+            "description": "CSS实现类似随机化效果。",
+            "detail": "In the past, I have covered the topic of pseudo-randomness in CSS using modulo operation and I used prime numbers to create an automatic counter that can be used to generate different values for each object. Thanks to that, we could compute pseudo-random values for each element independently..."
+        },
+        {
+            "title": "shell 十三問?",
+            "category": "shell",
+            "url": "http://bbs.chinaunix.net/thread-218853-1-1.html",
+            "description": "shell内部实现与使用。其实共有15问。",
+            "detail": "我在 CU 的日子並不長，有幸在 shell 版上與大家結緣。除了跟眾前輩學習到不少技巧之外，也常看到不少朋友的問題。然而，在眾多問題中，我發現許多瓶頸都源於 shell 的基礎而已。每次要解說，卻總有千言萬語不知從何起之感..."
+        },
+        {
+            "title": "How the V8 engine works",
+            "category": "javascript",
+            "url": "https://garden.bradwoods.io/experiments/js-engine/basic",
+            "description": "JavaScript V8引擎的原理。",
+            "detail": "Purpose: to compile JavaScript. Implements ECMAScript as specified in ECMA-262. Open source. Developed by Google. Written in C++. Runs inside a hosting environment:web browser & a server (Node.js)"
+        },
+        {
+            "title": "What happens when you open a terminal and enter ‘ls’",
+            "category": "shell",
+            "url": "https://www.warp.dev/blog/what-happens-when-you-open-a-terminal-and-enter-ls",
+            "description": "shell执行流程。",
+            "detail": "“What happens when you open a web browser and enter google.com?” I think it leaves an impression because navigating web pages is this magical process that we take for granted...",
+            "links": [
+                {
+                    "title": "What happens when...",
+                    "url": "https://github.com/alex/what-happens-when"
+                }
+            ]
+        },
+        {
+            "title": "C Strings and my slow descent to madness",
+            "category": "C",
+            "url": "https://www.deusinmachina.net/p/c-strings-and-my-slow-descent-to",
+            "description": "C字符串问题探讨。",
+            "detail": "I’ve been on a C kick recently as I learn the intricacies involved in low level programming. As a Data Scientist/Python Programmer I work with strings all the time. People say that handling strings in C range anywhere from tricky to downright awful. I was curious so I decided to see how deep the rabbit hole went..."
+        },
+        {
+            "title": "NAT穿透是如何工作的：技术原理及企业级实践",
+            "category": "network",
+            "url": "https://arthurchiao.art/blog/how-nat-traversal-works-zh/",
+            "description": "NAT穿透技术方法详解。",
+            "detail": "设想这样一个问题：在北京和上海各有一台局域网的机器（例如一台是家里的台式机，一 台是连接到星巴克 WiFi 的笔记本），二者都是私网 IP 地址，但可以访问公网，如何让这两台机器通信呢？……",
+            "links": [
+                {
+                    "title": "英文原文",
+                    "url": "https://tailscale.com/blog/how-nat-traversal-works"
+                }
+            ]
+        },
+        {
+            "title": "Everything I wish I knew when learning C",
+            "category": "C",
+            "url": "https://tmewett.com/c-tips/",
+            "description": "C语言中的几个重难点。",
+            "detail": "Learning C was quite difficult for me. The basics of the language itself weren’t so bad, but “programming in C” requires a lot of other kinds of knowledge which aren’t as easy to pick up on..."
+        },
+        {
+            "title": "HOW HTTPS WORKS",
+            "category": "HTTP",
+            "url": "https://howhttps.works/",
+            "description": "HTTPS工作原理的互动式教程。",
+            "detail": "Have you ever wondered why a green lock icon appears on your browser URL bar? And why is it important? We did too, and this comic is for you..."
+        },
+        {
+            "title": "Understanding all of Python, through its builtins",
+            "category": "Python",
+            "url": "https://tushar.lol/post/builtins/",
+            "description": "讲解Python的builtins函数。",
+            "detail": "Python has a whole lot of builtins that are unknown to most people. This guide aims to introduce you to everything that Python has to offer, through its seemingly obscure builtins..."
+        },
+        {
+            "title": "A Visual Guide to SSH Tunnels: Local and Remote Port Forwarding",
+            "category": "SSH",
+            "url": "https://iximiuz.com/en/posts/ssh-tunnels/",
+            "description": "SSH工作原理。",
+            "detail": "SSH is yet another example of an ancient technology that is still in wide use today. It may very well be that learning a couple of SSH tricks is more profitable in the long run than mastering a dozen Cloud Native tools destined to become deprecated next quarter..."
+        },
+        {
+            "title": "8 Causes of Slow Website Loading (And How To Fix Them)",
+            "category": "Frontend",
+            "url": "https://calibreapp.com/blog/causes-of-slow-websites",
+            "description": "加速网页加载的方法。",
+            "detail": "It’s no secret that slow website speeds negatively affect search engine rankings. However, leaping from knowing the problem to knowing how to fix it is a gulf that many website owners or SEOs never truly cross..."
+        },
+        {
+            "title": "Fun with console.log()",
+            "category": "Frontend",
+            "url": "https://dev.to/lissy93/fun-with-consolelog-3i59",
+            "description": "console.log的一些使用技巧。",
+            "detail": "If you've ever developed a web app, you'll be familiar with console.log(...), the method which prints data to the developer console; useful for debugging, logging and testing..."
+        },
+        {
+            "title": "就是要你懂网络--一个网络包的旅程",
+            "category": "network",
+            "url": "https://plantegg.github.io/2019/05/15/就是要你懂网络--一个网络包的旅程/",
+            "description": "一个网络包传输的全过程。",
+            "detail": "上面的概念在RFC1180中讲的无比的通熟易懂和连贯，但是抱歉，当时你也许看懂了，但是一个月后又忘记了，或者碰到问题才发现之前即使觉得看懂了的东西实际没懂，我发现大多人看 RFC1180、教科书基本当时都能看到，但就是一到实践就不会了，这里的鸿沟我分析应该就是缺少实践认知……"
+        },
+        {
+            "title": "socket 到底是个啥",
+            "category": "network",
+            "url": "https://mp.weixin.qq.com/s/Ebvjy132eRDOmcIL5cmxJw",
+            "description": "socket的原理。",
+            "detail": "我相信大家在面试过程中或多或少都会被问到这样一个问题：你能解释一下什么是 socket 吗？我记得我当初的回答很是浅显：socket 也叫套接字，用来负责不同主机程序之间的网络通信连接，socket 的表现方式由四元组（ip地址：端口）组成。那么今天，咸鱼将跟大家打开 socket 的神秘大门，不但要搞清楚 socket 的概念，最好还能够了解它的底层实现。"
+        },
+        {
+            "title": "How to Favicon in 2024: Six files that fit most needs",
+            "category": "Frontend",
+            "url": "https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs",
+            "description": "网站的图标应该怎么设置。",
+            "detail": "It’s time to rethink how we cook a set of favicons for modern browsers and stop the icon generator madness. Frontend developers currently have to deal with 20+ static PNG files just to display a tiny website logo in a browser tab or on a touchscreen..."
+        },
+        {
+            "title": "The Mad Magazine Fold-In Effect in CSS",
+            "category": "CSS",
+            "url": "https://thomaspark.co/2020/06/the-mad-magazine-fold-in-effect-in-css/",
+            "description": "CSS像杂志一样的折叠效果。",
+            "detail": "After 65 years at Mad Magazine, comic artist Al Jaffee announced his retirement. Jaffee was best known for his Mad Fold-Ins, where folding the page would reveal a hidden message in the artwork. Plenty of examples can be found on the web..."
+        },
+        {
+            "title": "Structures in C: From Basics to Memory Alignment",
+            "category": "C",
+            "url": "https://abstractexpr.com/2023/06/29/structures-in-c-from-basics-to-memory-alignment/",
+            "description": "C语言中结构体的内存问题。",
+            "detail": "Structures allow us to combine several variables to create a new data type. Some other languages support the same concept but call it “records”. If you come from object-oriented programming you can think about them as classes without methods..."
+        },
+        {
+            "title": "How docker generates container's names",
+            "category": "Docker",
+            "url": "https://pet2cattle.com/2022/08/docker-container-names-generator/",
+            "description": "Docker容器随机名称生成器。",
+            "detail": "Everytime you create a container using docker, if not already set using --name, docker chooses a name for you: you can expect two words with a underscore..."
+        },
+        {
+            "title": "Fixed Bits of Version 4 UUID",
+            "category": "linux",
+            "url": "https://susam.net/fixed-bits-of-version-4-uuid.html",
+            "description": "UUID的生成原理。",
+            "detail": "Universally Unique Identifiers or UUIDs are a popular way creating identifiers that are unique for practical purposes. Quoting from RFC 4122 below..."
+        },
+        {
+            "title": "Emulating a Raspberry Pi in QEMU",
+            "category": "OS",
+            "url": "https://interrupt.memfault.com/blog/emulating-raspberry-pi-in-qemu",
+            "description": "在QEMU中模拟树莓派。",
+            "detail": "The Raspberry Pi, a compact single-board computer, is widely used for DIY projects to industrial applications. These devices ship with a customized Linux distribution that differs from standard Linux..."
+        },
+        {
+            "title": "两种风格的错误处理",
+            "category": "Go",
+            "url": "https://frostming.com/2023/error-handling/",
+            "description": "Go语言中错误处理的方式。",
+            "detail": "错误处理是编程语言中很重要的组成部分。一般来说，发生错误时，要立即中止程序正常逻辑的执行，转而执行错误处理逻辑，这个过程称为错误处理。 我用过的编程语言中，比较熟悉的两种错误处理方式，一种是异常抛出，一种是错误返回。它们各有优缺点，也有各自胜任的场景……"
         }
     ],
 
@@ -242,7 +627,7 @@
         },
         {
             "title": "延迟时间",
-            "category": "tech",
+            "category": "misc",
             "url": "https://twitter.com/HiTw93/status/1780017510303014922",
             "description": "@HiTW93 #工程师学习",
             "detail": "这个工具做得挺有趣，程序员应该了解的延迟时间，把常见计算机领域中的延迟时间与不同年份的关系给关联起来了，可以滑动玩玩看，挺有趣，你会发现之前是真的慢。",
@@ -259,8 +644,48 @@
             "url": "https://twitter.com/HiFreyy/status/1779472661598618000",
             "description": "@HiFreyy",
             "detail": "山姆的这个拌面巨好吃，无限回购的产品，肉酱也特别足"
+        },
+        {
+            "title": "请教一个有关pull request的问题",
+            "category": "git",
+            "url": "https://codekitchen.community/t/topic/1070/4?u=frostming",
+            "description": "@uncle-lv @frostming",
+            "detail": "我向一个开源项目发起了pr，但是这个pr里出现了我上一次pr的commits。我按照这个博客，rebase了一下代码，然后本来是有10条commits的，现在我有20条了…请教一下各位大佬，这种情况该如何操作，才能让pr只包含本次提交的2条commits"
+        },
+        {
+            "title": "Linux 下的 navigation shortcut",
+            "category": "linux",
+            "url": "https://t.me/somecollections/5",
+            "description": "@H2HOLE #TIP",
+            "detail": "這一張在 Linux 下的 navigation shortcut 助記圖應該許多人都有看過，很多人會誤會這些快捷鍵是由 bash 所提供的，但實際上這些操作甚至在 Postgres 的 psql 中，或是 Python 和 Ruby 的 REPL （指 Read-Eval-Print Loop，一種交互式的程式運行環境）也能夠使用，其實他們底層依賴的是GNU Readline這個工具……"
+        },
+        {
+            "title": "BPF入门项目",
+            "category": "eBPF",
+            "url": "https://t.me/somecollections/7",
+            "description": "Unknown",
+            "detail": "前两周 ray 问我有什么入门 bpf 的推荐方法，我结合最近的实践给出以下几个练手项目：1. 内核态观测、2. 网络观测、3. 网络编程、4. 用户态观测。不走弯路，我推荐直接 cilium/ebpf 作为用户态 lib，虽然不如 libbpf 啥都支持，但是实现上述功能绰绰有余。"
+        },
+        {
+            "title": "v2rayN客户端DNS配置",
+            "category": "network",
+            "url": "https://t.me/somecollections/8",
+            "description": "@Hello_1024"
+        },
+        {
+            "title": "git HTTP 免代理配置",
+            "category": "network",
+            "url": "https://t.me/somecollections/9",
+            "description": "@frostming #share"
         }
     ],
 
-    "inspirations": []
+    "inspirations": [
+        {
+            "title": "76 款国产软件 5 折起，国货之光优惠庆典现已开启",
+            "category": "collection",
+            "url": "https://www.appinn.com/76-apps-cn-better/",
+            "description": "一些可供参考的例子。"
+        }
+    ]
 }
