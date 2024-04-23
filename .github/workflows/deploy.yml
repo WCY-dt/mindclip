@@ -20,6 +20,9 @@ jobs:
           npm install
           npm run build
 
+      - name: Setup CNAME
+        run: echo 'mind.ch3nyang.top' > ./build/CNAME
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.6.0
         with:
