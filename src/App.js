@@ -32,7 +32,7 @@ function App() {
   };
 
   return (
-    <Router basename="/mindclip">
+    <Router>
       <nav className="App-nav">
         <div className="App-nav-title">
           <img src="favicon.ico" alt="favicon" className="App-nav-title-icon" />
