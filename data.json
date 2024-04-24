@@ -608,6 +608,23 @@
             "url": "https://frostming.com/2023/error-handling/",
             "description": "Go语言中错误处理的方式。",
             "detail": "错误处理是编程语言中很重要的组成部分。一般来说，发生错误时，要立即中止程序正常逻辑的执行，转而执行错误处理逻辑，这个过程称为错误处理。 我用过的编程语言中，比较熟悉的两种错误处理方式，一种是异常抛出，一种是错误返回。它们各有优缺点，也有各自胜任的场景……"
+        },
+        {
+            "title": "利用FX991CNX的漏洞来升级计算器的教程",
+            "category": "hardware",
+            "url": "https://zhuanlan.zhihu.com/p/464012892",
+            "description": "卡西欧fx991CNX刷机。",
+            "detail": "这里的升级是指使用Casio FX991 CNX没有的功能。没想到吧，FX991CNX也可以通过bug成为JP900！不用找日本代购！不用在淘宝花几倍的价钱买JP900啦。还等什么，赶紧学吧……",
+            "links": [
+                {
+                    "title": "术语解释",
+                    "url": "https://zhuanlan.zhihu.com/p/261156688"
+                },
+                {
+                    "title": "fx991ROP任意代码执行漏洞",
+                    "url": "https://zhuanlan.zhihu.com/p/620584634"
+                }
+            ]
         }
     ],
 
@@ -697,8 +714,28 @@
             "url": "https://twitter.com/cyanvtb/status/1743859906149503271",
             "description": "@cyanvtb @JXQNHZr1yUAj5Be",
             "detail": "最近意识到，如果把时间拉到整个人生看，慢个三四年其实并不是那么可怕的事情。如果你能十年如一日的钻研一个技术的话，什么时候开始都不迟。美国打完了仗回来上大学的比比皆是。每个人都有自己的道路，追寻自己喜欢的事情就好了。"
+        },
+        {
+            "title": "你有哪些屡试不爽的经典话术？",
+            "category": "life",
+            "url": "https://www.zhihu.com/question/28354417/answer/2272005267",
+            "description": "@微醺的齐主任",
+            "detail": "你这个问题的底层逻辑是什么？顶层设计在哪？最终交付价值是什么？过程的抓手在哪？如何保证回答闭环？你比别人的亮点在哪？优势在哪？你的思考和沉淀是什么？这个问题换成我来问是否会不一样？在这之前，有自己的思考和沉淀吗？这些问题的颗粒度是怎样拆分的，能作为爆点，引发回答者对问题关键路径的探索吗？"
+        },
+        {
+            "title": "The Jeff Dean Facts",
+            "category": "misc",
+            "url": "https://www.informatika.bg/jeffdean",
+            "description": "Unknown",
+            "detail": "During his own Google interview, Jeff Dean was asked the implications if P=NP were true. He said, 'P = 0 or N = 1'. Then, before the interviewer had even finished laughing, Jeff examined Google's public certificate and wrote the private key on the whiteboard..."
+        },
+        {
+            "title": "前端如何设计网页？",
+            "category": "Frontend",
+            "url": "https://www.zhihu.com/question/603988389/answer/3053019706",
+            "description": "@西门吹牛",
+            "detail": "使用element ui或者andt design，主题就用默认得就好了，记住几个口诀：padding magin取值 8px 16px 24px，font-size：12px 14px 16px，color：#333 #666 #999 就行了"
         }
-
     ],
 
     "inspirations": [
