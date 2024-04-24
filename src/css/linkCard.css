@@ -78,16 +78,19 @@
 .link-card-title {
     font-size: 1.5rem;
     font-weight: 900;
+    word-break: break-all;
 }
 
 .link-card-description {
     font-size: 1rem;
     font-weight: 700;
+    word-break: break-all;
 }
 
 .link-card-detail {
     font-size: 1rem;
     font-weight: 400;
+    word-break: break-all;
 }
 
 .link-card-link {
