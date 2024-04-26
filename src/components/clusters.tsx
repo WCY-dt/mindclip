@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Icon } from '@iconify/react';
 import LinkCard from '../components/linkCard';
-import { ClusterProps, fetchAndFilterData } from '../utils/dataFetcher';
+import { ClusterProps, fetchAndFilterData } from '../services/dataFetcher';
 import '../styles/clusters.css';
 
 interface ClustersProps {
