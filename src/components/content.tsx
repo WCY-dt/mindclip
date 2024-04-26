@@ -1,12 +1,19 @@
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Cluster from '../components/clusters';
 import '../styles/content.css';
 
-function Content({ routes, searchTerm, setSearchTerm }) {
+interface ContentProps {
+  routes: { [key: string]: string };
+  searchTerm: string;
+  setSearchTerm: (value: string) => void;
+}
+
+function Content({ routes, searchTerm, setSearchTerm }: ContentProps) {
   return (
     <div className="App-content">
       <Routes>
-        <Route exact path="/"
+        <Route path="/"
           element={<Cluster dataKey="techniques" searchTerm={searchTerm} setSearchTerm={setSearchTerm} />}
         />
         {Object.entries(routes).map(([path, element]) => (

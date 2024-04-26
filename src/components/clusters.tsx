@@ -1,12 +1,18 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Icon } from '@iconify/react';
 import LinkCard from '../components/linkCard';
-import { fetchAndFilterData } from '../utils/dataFetcher';
+import { ClusterProps, fetchAndFilterData } from '../utils/dataFetcher';
 import '../styles/clusters.css';
 
-function Clusters({ dataKey, searchTerm, setSearchTerm }) {
-  const [clusters, setClusters] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+interface ClustersProps {
+  dataKey: string;
+  searchTerm: string;
+  setSearchTerm: (value: string) => void;
+}
+
+function Clusters({ dataKey, searchTerm, setSearchTerm }: ClustersProps) {
+  const [clusters, setClusters] = useState<ClusterProps[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   useEffect(() => {
     fetchAndFilterData(dataKey, selectedCategory, searchTerm, setClusters);
@@ -18,7 +24,7 @@ function Clusters({ dataKey, searchTerm, setSearchTerm }) {
   }, [setSelectedCategory, setSearchTerm]);
 
   useEffect(() => {
-    const handleEsc = (event) => {
+    const handleEsc = (event: KeyboardEvent) => {
       if (event.keyCode === 27) {
         handleClearFilter();
       }
@@ -38,7 +44,7 @@ function Clusters({ dataKey, searchTerm, setSearchTerm }) {
       )}
       <div className="Clusters-list">
         {clusters.length > 0 ? (
-          clusters.map((cluster) => (
+          clusters.map((cluster: ClusterProps) => (
             <LinkCard
               key={cluster.title}
               item={cluster}

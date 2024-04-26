@@ -3,9 +3,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/nav.css';
 
-function Header({ routes, searchTerm, setSearchTerm }) {
+interface HeaderProps {
+  routes: { [key: string]: string };
+  searchTerm: string;
+  setSearchTerm: (value: string) => void;
+}
 
-  const inputRef = useRef();
+function Header({ routes, searchTerm, setSearchTerm }: HeaderProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
     localStorage.removeItem('colorMap');
     if (inputRef.current) {
