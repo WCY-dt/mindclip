@@ -1,29 +1,15 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Icon } from '@iconify/react';
-import LinkCard from './linkCard';
-import '../css/clusters.css';
+import LinkCard from '../components/linkCard';
+import { fetchAndFilterData } from '../utils/dataFetcher';
+import '../styles/clusters.css';
 
 function Clusters({ dataKey, searchTerm, setSearchTerm }) {
   const [clusters, setClusters] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
-    fetch('data.json')
-      .then(response => response.json())
-      .then(data => {
-        let filteredClusters = data[dataKey];
-        if (selectedCategory) {
-          filteredClusters = filteredClusters.filter(cluster => cluster.category === selectedCategory);
-        }
-        if (searchTerm) {
-          filteredClusters = filteredClusters.filter(cluster =>
-            Object.values(cluster).some(value =>
-              value.toString().toLowerCase().includes(searchTerm.toLowerCase())
-            )
-          );
-        }
-        setClusters(filteredClusters);
-      });
+    fetchAndFilterData(dataKey, selectedCategory, searchTerm, setClusters);
   }, [dataKey, selectedCategory, searchTerm]);
 
   const handleClearFilter = useCallback(() => {

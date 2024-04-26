@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/linkCard.css';
+import '../styles/linkCard.css';
 
 function isColorTooLight(color) {
   const r = parseInt(color.substr(1, 2), 16);

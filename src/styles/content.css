@@ -1,11 +1,8 @@
-.App {
+.App-content {
   text-align: center;
   padding-top: calc(80px);
-}
-
-.App-header {
   background-color: #ffffff;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px - 105px);
   display: flex;
   flex-direction: column;
   align-items: center;
