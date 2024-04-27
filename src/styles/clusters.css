@@ -16,7 +16,6 @@
 .Clusters-list>* {
     flex: 0 0 350px;
     height: 375px;
-    max-width: 100%;
 }
 
 .Clusters-cancel-filter {

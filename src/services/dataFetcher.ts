@@ -9,6 +9,7 @@ export interface ClusterProps {
 
 export function fetchAndFilterData(
   dataKey: string,
+  isRandom: boolean = false,
   selectedCategory: string | null = null,
   searchTerm: string = '',
   setClusters: (value: ClusterProps[]) => void
@@ -26,6 +27,9 @@ export function fetchAndFilterData(
             value.toString().toLowerCase().includes(searchTerm.toLowerCase())
           )
         );
+      }
+      if (isRandom) {
+        clusters = clusters.sort(() => Math.random() - 0.5);
       }
       setClusters(clusters);
     });

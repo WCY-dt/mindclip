@@ -9,6 +9,7 @@
     color: #000;
 
     width: 100%;
+    max-width: 350px;
     height: 100%;
 
     padding: 0;
@@ -76,21 +77,24 @@
 }
 
 .link-card-title {
+    max-width: 270px;
     font-size: 1.5rem;
     font-weight: 900;
-    word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 .link-card-description {
+    max-width: 270px;
     font-size: 1rem;
     font-weight: 700;
-    word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 .link-card-detail {
+    max-width: 270px;
     font-size: 1rem;
     font-weight: 400;
-    word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 .link-card-link {

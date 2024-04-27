@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { Icon } from '@iconify/react';
+import React, { useEffect, useState } from 'react';
 import LinkCard from '../components/linkCard';
+import ClearFilter from '../utils/clearFilter';
 import { ClusterProps, fetchAndFilterData } from '../services/dataFetcher';
 import '../styles/clusters.css';
 
@@ -15,33 +15,13 @@ function Clusters({ dataKey, searchTerm, setSearchTerm }: ClustersProps) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchAndFilterData(dataKey, selectedCategory, searchTerm, setClusters);
+    fetchAndFilterData(dataKey, true, selectedCategory, searchTerm, setClusters);
   }, [dataKey, selectedCategory, searchTerm]);
-
-  const handleClearFilter = useCallback(() => {
-    setSelectedCategory(null);
-    setSearchTerm('');
-  }, [setSelectedCategory, setSearchTerm]);
-
-  useEffect(() => {
-    const handleEsc = (event: KeyboardEvent) => {
-      if (event.keyCode === 27) {
-        handleClearFilter();
-      }
-    };
-    window.addEventListener('keydown', handleEsc);
-
-    return () => {
-      window.removeEventListener('keydown', handleEsc);
-    };
-  }, [handleClearFilter]);
 
   return (
     <>
       <h1 className="Clusters-title">{dataKey}</h1>
-      {(selectedCategory || searchTerm) && (
-        <button className="Clusters-cancel-filter" onClick={handleClearFilter}><Icon icon="ci:filter-off-outline" /></button>
-      )}
+      <ClearFilter {...{ selectedCategory, setSelectedCategory, searchTerm, setSearchTerm }} />
       <div className="Clusters-list">
         {clusters.length > 0 ? (
           clusters.map((cluster: ClusterProps) => (

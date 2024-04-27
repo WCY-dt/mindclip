@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/nav.css';
+import '../styles/header.css';
 
 interface HeaderProps {
   routes: { [key: string]: string };
@@ -26,57 +26,39 @@ function Header({ routes, searchTerm, setSearchTerm }: HeaderProps) {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header>
-      <nav className="App-nav">
-        <div className="App-nav-title">
-          <img src="favicon.ico" alt="favicon" className="App-nav-title-icon" />
-          <p className="App-nav-title-text">MindClip</p>
-        </div>
-        <ul className="App-nav-list">
-          {Object.entries(routes).map(([path, element]) => (
-            <li className="App-nav-item"><Link to={path}>{element}</Link></li>
-          ))}
-        </ul>
-        <div className="App-nav-search">
-          {searchTerm ? <Icon className="App-nav-search-icon" icon="ci:close-md" onClick={handleClearFilter} /> : <Icon className="App-nav-search-icon" icon="ci:filter-outline" />}
-          <input
-            ref={inputRef}
-            className="App-nav-search-input"
-            type="text"
-            placeholder="Search something..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
-      </nav>
-      <nav className="App-nav-mobile">
-        <div className="App-nav-title">
-          <img src="favicon.ico" alt="favicon" className="App-nav-title-icon" />
-          <p className="App-nav-title-text">MindClip</p>
-        </div>
-        <button className="App-nav-button" onClick={toggleMenu}>{isOpen ? <Icon icon="ci:window-close" /> : <Icon icon="ci:window-sidebar" />}</button>
-        {isOpen && (
-          <div className="App-nav-menu">
-            <div className="App-nav-search">
-              {searchTerm ? <Icon className="App-nav-search-icon" icon="ci:close-md" onClick={handleClearFilter} /> : <Icon className="App-nav-search-icon" icon="ci:filter-outline" />}
-              <input
-                ref={inputRef}
-                className="App-nav-search-input"
-                type="text"
-                placeholder="Search something..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-            {Object.entries(routes).map(([path, element]) => (
-              <li className="App-nav-item"><Link to={path}>{element}</Link></li>
-            ))}
-          </div>
-        )}
-      </nav>
-
-      <div className={`overlay ${isOpen ? 'open' : ''}`} onClick={toggleMenu}></div>
-    </header>
+<header>
+  <nav className="App-nav">
+    <a className="App-nav-title" href="/">
+      <img src="favicon.ico" alt="favicon" className="App-nav-title-icon" />
+      <p className="App-nav-title-text">MindClip</p>
+    </a>
+    <ul className="App-nav-list">
+      {Object.entries(routes).map(([path, element]) => (
+        <li className="App-nav-item"><Link to={path}>{element}</Link></li>
+      ))}
+    </ul>
+        <div className={`App-nav-search ${isOpen ? 'open' : ''}`}>
+      {searchTerm ? <Icon className="App-nav-search-icon" icon="ci:close-md" onClick={handleClearFilter} /> : <Icon className="App-nav-search-icon" icon="ci:filter-outline" />}
+      <input
+        ref={inputRef}
+        className="App-nav-search-input"
+        type="text"
+        placeholder="Search something..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+    </div>
+    <button className="App-nav-button" onClick={toggleMenu}>{isOpen ? <Icon icon="ci:window-close" /> : <Icon icon="ci:window-sidebar" />}</button>
+    {isOpen && (
+      <div className="App-nav-menu">
+        {Object.entries(routes).map(([path, element]) => (
+          <li className="App-nav-item"><Link to={path}>{element}</Link></li>
+        ))}
+      </div>
+    )}
+  </nav>
+  <div className={`overlay ${isOpen ? 'open' : ''}`} onClick={toggleMenu}></div>
+</header>
   )
 }
 
