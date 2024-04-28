@@ -1,12 +1,3 @@
-export interface ClusterProps {
-  category: string;
-  url: string;
-  title: string;
-  description: string;
-  detail: string;
-  links: { title: string, url: string }[];
-}
-
 export function fetchAndFilterData(
   dataKey: string,
   isRandom: boolean = false,
@@ -14,23 +5,30 @@ export function fetchAndFilterData(
   searchTerm: string = '',
   setClusters: (value: ClusterProps[]) => void
 ) {
-  fetch('data.json')
-    .then(response => response.json())
+  const api = "https://api.mind.ch3nyang.top";
+  let url = `${api}/linkcard?collection=${dataKey}`;
+  if (selectedCategory) {
+    url += `&category=${selectedCategory}`;
+  }
+  if (searchTerm) {
+    url += `&search=${searchTerm}`;
+  }
+
+  fetch(url, { method: 'GET' })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
     .then(data => {
-      let clusters = data[dataKey];
-      if (selectedCategory) {
-        clusters = clusters.filter((cluster: ClusterProps) => cluster.category === selectedCategory);
-      }
-      if (searchTerm) {
-        clusters = clusters.filter((cluster: ClusterProps) =>
-          Object.values(cluster).some(value =>
-            value.toString().toLowerCase().includes(searchTerm.toLowerCase())
-          )
-        );
-      }
       if (isRandom) {
-        clusters = clusters.sort(() => Math.random() - 0.5);
+        data = data.sort(() => Math.random() - 0.5);
       }
-      setClusters(clusters);
+      setClusters(data);
+    })
+    .catch(e => {
+      console.error(`Fetch failed: ${e.message}`);
+      console.error(`Failed URL: ${url}`);
     });
 }

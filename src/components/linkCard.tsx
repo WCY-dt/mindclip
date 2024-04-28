@@ -3,41 +3,34 @@ import { getRandomColor, getContrastColor } from '../utils/randomColor';
 import '../styles/linkCard.css';
 
 interface LinkCardProps {
-  item: {
-    category: string;
-    url: string;
-    title: string;
-    description: string;
-    detail: string;
-    links: { title: string, url: string }[];
-  };
+  item: ClusterProps;
   setSelectedCategory: (value: string) => void;
 }
 
 function LinkCard({ item, setSelectedCategory }: LinkCardProps) {
-  const backgroundColor = getRandomColor(item.category);
+  const backgroundColor = getRandomColor(item.Category);
   const textColor = getContrastColor(backgroundColor);
 
   const handleCategoryClick = (e: React.MouseEvent) => {
   e.preventDefault();
-  setSelectedCategory(item.category);
+  setSelectedCategory(item.Category);
 };
 
   return (
     <a
       className="link-card"
-      href={item.url ? item.url : '#'}
+      href={item.Urlpath ? item.Urlpath : '#'}
       target="_blank"
       rel="noopener noreferrer"
-      id={item.title}
+      id={item.Title}
     >
       <div className="link-card-left">
         <div className="link-card-category" style={{ backgroundColor, color: textColor }} onClick={handleCategoryClick}>
-          {item.category ? item.category : 'UNKNOWN'}
+          {item.Category ? item.Category : 'UNKNOWN'}
         </div>
         <div className="link-card-icon">
           <img
-            src={`https://www.google.com/s2/favicons?sz=64&domain=${item.url ? new URL(item.url).hostname : 'ch3nyang.top'}`}
+            src={`https://www.google.com/s2/favicons?sz=64&domain=${item.Urlpath ? new URL(item.Urlpath).hostname : 'ch3nyang.top'}`}
             alt="favicon"
             className="link-card-icon-img"
           />
@@ -46,27 +39,27 @@ function LinkCard({ item, setSelectedCategory }: LinkCardProps) {
       
       <div className="link-card-right">
         <div className="link-card-title">
-          {item.title}
+          {item.Title}
         </div>
         <div className="link-card-description">
-          {item.description}
+          {item.Descr}
         </div>
-        {item.detail ? (
+        {item.Detail ? (
           <div className="link-card-detail">
-            {item.detail}
+            {item.Detail}
           </div>
         ) : null}
         {item.links ? (
           <div className="link-card-link">
             {item.links && item.links.length > 0 ? item.links.map((link) => (
               <a
-                key={link.url}
-                href={link.url}
+                key={link.Urlpath}
+                href={link.Urlpath}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="link-card-link-item"
               >
-                {link.title}
+                {link.Title}
               </a>
             )) : ''}
           </div>

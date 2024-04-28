@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import LinkCard from '../components/linkCard';
 import ClearFilter from '../utils/clearFilter';
-import { ClusterProps, fetchAndFilterData } from '../services/dataFetcher';
+import { fetchAndFilterData } from '../services/dataFetcher';
 import '../styles/clusters.css';
 
 interface ClustersProps {
@@ -26,7 +26,7 @@ function Clusters({ dataKey, searchTerm, setSearchTerm }: ClustersProps) {
         {clusters.length > 0 ? (
           clusters.map((cluster: ClusterProps) => (
             <LinkCard
-              key={cluster.title}
+              key={cluster.Title}
               item={cluster}
               setSelectedCategory={setSelectedCategory}
             />
