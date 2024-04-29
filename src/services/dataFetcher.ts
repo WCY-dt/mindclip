@@ -5,30 +5,31 @@ export function fetchAndFilterData(
   searchTerm: string = '',
   setClusters: (value: ClusterProps[]) => void
 ) {
-  const api = "https://api.mind.ch3nyang.top";
-  let url = `${api}/card?collection=${dataKey}`;
-  if (selectedCategory) {
-    url += `&category=${selectedCategory}`;
-  }
-  if (searchTerm) {
-    url += `&search=${searchTerm}`;
-  }
+  return new Promise(async (resolve, reject) => {
+    const api = "https://api.mind.ch3nyang.top";
+    let url = `${api}/card?collection=${dataKey}`;
+    if (selectedCategory) {
+      url += `&category=${selectedCategory}`;
+    }
+    if (searchTerm) {
+      url += `&search=${searchTerm}`;
+    }
 
-  fetch(url, { method: 'GET' })
-    .then(response => {
+    try {
+      const response = await fetch(url, { method: 'GET' });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      return response.json();
-    })
-    .then(data => {
+      let data = await response.json();
       if (isRandom) {
         data = data.sort(() => Math.random() - 0.5);
       }
       setClusters(data);
-    })
-    .catch(e => {
-      console.error(`Fetch failed: ${e.message}`);
+      resolve(undefined);
+    } catch (e) {
+      console.error(`Fetch failed: ${(e as Error).message}`);
       console.error(`Failed URL: ${url}`);
-    });
+      reject(e);
+    }
+  });
 }

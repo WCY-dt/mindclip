@@ -1,18 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
+import { fetchCollection } from '../services/collectionFetcher';
 import Header from '../components/header';
 import Content from '../components/content';
 import Footer from '../components/footer';
 
+import '../styles/loading.css';
+
 function Router() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const routes = {
-    "/tech": "techniques",
-    "/opi": "opinions",
-    "/ins": "inspirations"
-  };
+  const [routes, setRoutes] = useState({});
+  useEffect(() => {
+    setIsLoading(true);
+    fetchCollection(setRoutes)
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="loading"></div>
+    );
+  }
 
   return (
     <BrowserRouter>

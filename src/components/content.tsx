@@ -14,7 +14,7 @@ function Content({ routes, searchTerm, setSearchTerm }: ContentProps) {
     <div className="App-content">
       <Routes>
         <Route path="/"
-          element={<Cluster dataKey="techniques" searchTerm={searchTerm} setSearchTerm={setSearchTerm} />}
+          element={<Cluster dataKey={routes[Object.keys(routes)[0]]} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />}
         />
         {Object.entries(routes).map(([path, element]) => (
           <Route path={path}

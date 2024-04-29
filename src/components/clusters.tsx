@@ -3,6 +3,7 @@ import LinkCard from '../components/linkCard';
 import ClearFilter from '../utils/clearFilter';
 import { fetchAndFilterData } from '../services/dataFetcher';
 import '../styles/clusters.css';
+import '../styles/loading.css';
 
 interface ClustersProps {
   dataKey: string;
@@ -13,10 +14,19 @@ interface ClustersProps {
 function Clusters({ dataKey, searchTerm, setSearchTerm }: ClustersProps) {
   const [clusters, setClusters] = useState<ClusterProps[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetchAndFilterData(dataKey, true, selectedCategory, searchTerm, setClusters);
+    setIsLoading(true);
+    fetchAndFilterData(dataKey, true, selectedCategory, searchTerm, setClusters)
+      .finally(() => setIsLoading(false));
   }, [dataKey, selectedCategory, searchTerm]);
+
+  if (isLoading) {
+    return (
+      <div className="loading"></div>
+    );
+  }
 
   return (
     <>
