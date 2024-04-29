@@ -6,7 +6,7 @@ export function fetchAndFilterData(
   setClusters: (value: ClusterProps[]) => void
 ) {
   const api = "https://api.mind.ch3nyang.top";
-  let url = `${api}/linkcard?collection=${dataKey}`;
+  let url = `${api}/card?collection=${dataKey}`;
   if (selectedCategory) {
     url += `&category=${selectedCategory}`;
   }
