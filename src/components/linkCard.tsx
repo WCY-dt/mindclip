@@ -19,7 +19,7 @@ function LinkCard({ item, setSelectedCategory }: LinkCardProps) {
   return (
     <a
       className="link-card"
-      href={item.Urlpath ? item.Urlpath.replace(/&#39;/g, "'") : '#'}
+      href={item.Url ? item.Url.replace(/&#39;/g, "'") : '#'}
       target="_blank"
       rel="noopener noreferrer"
       id={item.Title}
@@ -30,7 +30,7 @@ function LinkCard({ item, setSelectedCategory }: LinkCardProps) {
         </div>
         <div className="link-card-icon">
           <img
-            src={`https://www.google.com/s2/favicons?sz=64&domain=${item.Urlpath ? new URL(item.Urlpath.replace(/&#39;/g, "'")).hostname : 'ch3nyang.top'}`}
+            src={`https://www.google.com/s2/favicons?sz=64&domain=${item.Url ? new URL(item.Url.replace(/&#39;/g, "'")).hostname : 'ch3nyang.top'}`}
             alt="favicon"
             className="link-card-icon-img"
           />
@@ -42,7 +42,7 @@ function LinkCard({ item, setSelectedCategory }: LinkCardProps) {
           {item.Title.replace(/&#39;/g, "'")}
         </div>
         <div className="link-card-description">
-          {item.Descr.replace(/&#39;/g, "'")}
+          {item.Description.replace(/&#39;/g, "'")}
         </div>
         {item.Detail ? (
           <div className="link-card-detail">
@@ -53,8 +53,8 @@ function LinkCard({ item, setSelectedCategory }: LinkCardProps) {
           <div className="link-card-link">
             {item.links && item.links.length > 0 ? item.links.map((link) => (
               <a
-                key={link.Urlpath}
-                href={link.Urlpath.replace(/&#39;/g, "'")}
+                key={link.Url}
+                href={link.Url.replace(/&#39;/g, "'")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="link-card-link-item"

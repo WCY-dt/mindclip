@@ -1,9 +1,9 @@
 interface ClusterProps {
-    Col: string;
+    Collection: string;
     Category: string;
     Title: string;
-    Urlpath: string;
-    Descr: string;
+    Url: string;
+    Description: string;
     Detail: string;
-    links: { Title: string, Urlpath: string }[];
+    links: { Title: string, Url: string }[];
 }
