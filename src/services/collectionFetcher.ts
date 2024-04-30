@@ -1,6 +1,6 @@
 export function fetchCollection(setRoutes: (value: {}) => void) {
   return new Promise(async (resolve, reject) => {
-    const api = "https://api.mind.ch3nyang.top";
+    const api = process.env.REACT_APP_API_URL;
     let url = `${api}/collection`;
 
     try {

@@ -7,9 +7,12 @@ interface ContentProps {
   routes: { [key: string]: string };
   searchTerm: string;
   setSearchTerm: (value: string) => void;
+  isLogedIn: boolean;
+  token: string;
+  setToken: (value: string) => void;
 }
 
-function Content({ routes, searchTerm, setSearchTerm }: ContentProps) {
+function Content({ routes, searchTerm, setSearchTerm, isLogedIn, token, setToken }: ContentProps) {
   return (
     <div className="App-content">
       <Routes>

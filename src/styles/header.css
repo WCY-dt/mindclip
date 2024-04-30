@@ -12,6 +12,20 @@
     background-color: #ffffff;
 }
 
+.App-nav-left {
+    height: 100%;
+}
+
+.App-nav-right {
+    height: 100%;
+    width: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
 .App-nav-title {
     display: flex;
     align-items: center;
@@ -98,6 +112,26 @@
     outline: none;
 }
 
+.App-nav-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #333333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+
+    font-size: 1.5em;
+}
+
+.App-nav-login:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.1s;
+}
+
 .App-nav-menu {
     display: none
 }
@@ -143,6 +177,14 @@
         padding: 10px 0;
     }
 
+    .App-nav-right {
+        width: 100%;
+    }
+
+    .App-nav-login {
+        display: none;
+    }
+
     .App-nav-search {
         display: none;
     }
@@ -179,6 +221,7 @@
         left: 20px;
 
         background-color: transparent;
+        color: black;
         border: none;
         cursor: pointer;
 

@@ -1,0 +1,67 @@
+.Login-title {
+    font-size: 2rem;
+    text-transform: capitalize;
+    font-weight: 900;
+}
+
+.Login-input {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto 1fr;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.Login-input input {
+    font-size: 1rem;
+    padding: 0.5rem;
+
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+
+    border: 2px solid transparent;
+}
+
+.Login-input input:focus {
+    outline: none;
+    border-bottom: 2px solid #333333;
+}
+
+.Login-input label {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.Login-button {
+    font-size: 1rem;
+    padding: 0.5rem;
+    background-color: #333333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.Login-button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.1s;
+}
+
+.Login-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+
+    color: #333;
+    background-color: #fff;
+    border: none;
+}

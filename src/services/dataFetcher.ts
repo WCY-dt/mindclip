@@ -6,7 +6,7 @@ export function fetchAndFilterData(
   setClusters: (value: ClusterProps[]) => void
 ) {
   return new Promise(async (resolve, reject) => {
-    const api = "https://api.mind.ch3nyang.top";
+    const api = process.env.REACT_APP_API_URL;
     let url = `${api}/card?collection=${dataKey}`;
     if (selectedCategory) {
       url += `&category=${selectedCategory}`;
