@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+
 import LinkCard from '../components/linkCard';
 import ClearFilter from '../utils/clearFilter';
 import { fetchAndFilterData } from '../services/dataFetcher';
-import '../styles/clusters.css';
-import '../styles/loading.css';
+
+import '../styles/components/clusters.css';
+import '../styles/popups/loading.css';
 
 interface ClustersProps {
   dataKey: string;

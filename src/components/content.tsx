@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+
 import Cluster from '../components/clusters';
-import '../styles/content.css';
+
+import '../styles/components/content.css';
 
 interface ContentProps {
   routes: { [key: string]: string };
@@ -12,9 +14,10 @@ interface ContentProps {
   setToken: (value: string) => void;
   message: string | null;
   setMessage: (value: string | null) => void;
+	setShowOverlay: (value: boolean) => void;
 }
 
-function Content({ routes, searchTerm, setSearchTerm, isLogedIn, token, setToken, message, setMessage }: ContentProps) {
+function Content({ routes, searchTerm, setSearchTerm, isLogedIn, token, setToken, message, setMessage, setShowOverlay }: ContentProps) {
   return (
     <div className="App-content">
       <Routes>

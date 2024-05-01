@@ -1,8 +1,10 @@
-import { Icon } from '@iconify/react';
 import React, { useState, useEffect, useRef } from 'react';
+import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
+
 import Login from '../popups/login';
-import '../styles/header.css';
+
+import '../styles/components/header.css';
 
 interface HeaderProps {
   routes: { [key: string]: string };
@@ -14,9 +16,10 @@ interface HeaderProps {
   setToken: (value: string) => void;
   message: string | null;
   setMessage: (value: string | null) => void;
+	setShowOverlay: (value: boolean) => void;
 }
 
-function Header({ routes, searchTerm, setSearchTerm, isLogedIn, setIsLogedIn, token, setToken, message, setMessage }: HeaderProps) {
+function Header({ routes, searchTerm, setSearchTerm, isLogedIn, setIsLogedIn, token, setToken, message, setMessage, setShowOverlay }: HeaderProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
     localStorage.removeItem('colorMap');
@@ -81,7 +84,7 @@ function Header({ routes, searchTerm, setSearchTerm, isLogedIn, setIsLogedIn, to
         )}
       </nav>
       <div className={`overlay ${(isOpen || showLogin) ? 'open' : ''}`} onClick={() => {
-        if (isOpen) toggleMenu(); 
+        if (isOpen) toggleMenu();
         if (showLogin) toggleLogin();
       }}></div>
       {showLogin && <Login setShowLogin={setShowLogin} setIsLogedIn={setIsLogedIn} token={token} setToken={setToken} message={message} setMessage={setMessage} /> }

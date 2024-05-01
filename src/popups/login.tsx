@@ -1,8 +1,10 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
+
 import loginHandler from '../services/loginHandler';
-import '../styles/popup.css';
-import '../styles/login.css';
+
+import '../styles/popups/popup.css';
+import '../styles/popups/login.css';
 
 interface LoginProps {
   setShowLogin: (value: boolean) => void;

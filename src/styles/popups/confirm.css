@@ -1,0 +1,38 @@
+.Confirm-message {
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+.Confirm-button-pair {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 1rem;
+}
+
+.Confirm-button {
+	font-size: 1rem;
+	padding: 0.5rem;
+	border: 2px solid #333333;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 50%;
+	margin: 0 auto;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.Confirm-button:hover {
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	transition: box-shadow 0.1s;
+}
+
+.Confirm-button-cancel {
+	background-color: #333333;
+	color: #fff;
+}
+
+.Confirm-button-ok {
+	background-color: #f0f0f0;
+	color: #333333;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/notification.css';
+
+import '../styles/popups/notification.css';
 
 interface NotificationProps {
     message: string | null;

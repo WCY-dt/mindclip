@@ -6,17 +6,21 @@ import Header from '../components/header';
 import Content from '../components/content';
 import Footer from '../components/footer';
 import Notification from '../popups/notification';
+import Overlay from '../popups/overlay';
 
-import '../styles/loading.css';
+import '../styles/popups/loading.css';
 
 function Router() {
-  const [searchTerm, setSearchTerm] = useState('');
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isLogedIn, setIsLogedIn] = useState<boolean>(false);
+
+	const [routes, setRoutes] = useState({});
+
   const [token, setToken] = useState<string>('');
   const [message, setMessage] = useState<string | null>(null);
+	const [showOverlay, setShowOverlay] = useState<boolean>(false)
 
-  const [routes, setRoutes] = useState({});
+	const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     setIsLoading(true);
@@ -40,13 +44,14 @@ function Router() {
   return (
     <>
       <BrowserRouter>
-        <Header routes={routes} searchTerm={searchTerm} setSearchTerm={setSearchTerm} isLogedIn={isLogedIn} setIsLogedIn={setIsLogedIn} token={token} setToken={setToken} message={message} setMessage={setMessage} />
+        <Header routes={routes} searchTerm={searchTerm} setSearchTerm={setSearchTerm} isLogedIn={isLogedIn} setIsLogedIn={setIsLogedIn} token={token} setToken={setToken} message={message} setMessage={setMessage} setShowOverlay={setShowOverlay} />
 
-        <Content routes={routes} searchTerm={searchTerm} setSearchTerm={setSearchTerm} isLogedIn={isLogedIn} token={token} setToken={setToken} message={message} setMessage={setMessage} />
+				<Content routes={routes} searchTerm={searchTerm} setSearchTerm={setSearchTerm} isLogedIn={isLogedIn} token={token} setToken={setToken} message={message} setMessage={setMessage} setShowOverlay={setShowOverlay} />
 
         <Footer />
       </BrowserRouter>
       <Notification message={message} setMessage={setMessage} />
+			<Overlay showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
     </>
   );
 }

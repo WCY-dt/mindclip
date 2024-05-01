@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 import { v4 as uuidv4 } from 'uuid';
+
 import { getRandomColor, getContrastColor } from '../utils/randomColor';
 import Confirm from '../popups/confirm';
 import deleteCardHandler from '../services/deleteCardHandler';
-import '../styles/linkCard.css';
+
+import '../styles/components/linkCard.css';
 
 interface LinkCardProps {
   item: ClusterProps;
@@ -63,7 +65,7 @@ function LinkCard({ item, setSelectedCategory, isLogedIn, token, message, setMes
           }
         </div>
 
-        <a 
+        <a
           className="link-card-right"
           href={item.Url ? item.Url : '#'}
           target="_blank"
