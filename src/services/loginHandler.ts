@@ -12,7 +12,7 @@ async function loginHandler({ username, password, setToken }: LoginHandlerProps)
         const response = await fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'text/plain',
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({ user: username, pass: password }),
         });
@@ -24,7 +24,6 @@ async function loginHandler({ username, password, setToken }: LoginHandlerProps)
         const data = await response.json();
         let token = data.token;
         setToken(token);
-        // console.log('Token:', token);
         return true;
     } catch (error) {
         console.error('Error:', error);

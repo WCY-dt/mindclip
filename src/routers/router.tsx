@@ -42,7 +42,7 @@ function Router() {
       <BrowserRouter>
         <Header routes={routes} searchTerm={searchTerm} setSearchTerm={setSearchTerm} isLogedIn={isLogedIn} setIsLogedIn={setIsLogedIn} token={token} setToken={setToken} message={message} setMessage={setMessage} />
 
-        <Content routes={routes} searchTerm={searchTerm} setSearchTerm={setSearchTerm} isLogedIn={isLogedIn} token={token} setToken={setToken}/>
+        <Content routes={routes} searchTerm={searchTerm} setSearchTerm={setSearchTerm} isLogedIn={isLogedIn} token={token} setToken={setToken} message={message} setMessage={setMessage} />
 
         <Footer />
       </BrowserRouter>

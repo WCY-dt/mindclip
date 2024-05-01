@@ -9,9 +9,13 @@ interface ClustersProps {
   dataKey: string;
   searchTerm: string;
   setSearchTerm: (value: string) => void;
+  isLogedIn: boolean;
+  token: string;
+  message: string | null;
+  setMessage: (value: string | null) => void;
 }
 
-function Clusters({ dataKey, searchTerm, setSearchTerm }: ClustersProps) {
+function Clusters({ dataKey, searchTerm, setSearchTerm, isLogedIn, token, message, setMessage }: ClustersProps) {
   const [clusters, setClusters] = useState<ClusterProps[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -39,6 +43,10 @@ function Clusters({ dataKey, searchTerm, setSearchTerm }: ClustersProps) {
               key={cluster.Title}
               item={cluster}
               setSelectedCategory={setSelectedCategory}
+              isLogedIn={isLogedIn}
+              token={token}
+              message={message}
+              setMessage={setMessage}
             />
           ))
         ) : (

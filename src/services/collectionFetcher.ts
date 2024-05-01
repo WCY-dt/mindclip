@@ -1,7 +1,7 @@
 export function fetchCollection(setRoutes: (value: {}) => void) {
   return new Promise(async (resolve, reject) => {
     const api = process.env.REACT_APP_API_URL;
-    let url = `${api}/collection`;
+    let url = `${api}/card/collection`;
 
     try {
       const response = await fetch(url, { method: 'GET' });

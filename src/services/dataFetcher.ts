@@ -7,12 +7,12 @@ export function fetchAndFilterData(
 ) {
   return new Promise(async (resolve, reject) => {
     const api = process.env.REACT_APP_API_URL;
-    let url = `${api}/card?collection=${dataKey}`;
+    let url = `${api}/card?showid&collection=${dataKey}`;
     if (selectedCategory) {
       url += `&category=${selectedCategory}`;
     }
     if (searchTerm) {
-      url += `&search=${searchTerm}`;
+      url += `&query=${searchTerm}`;
     }
 
     try {

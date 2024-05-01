@@ -19,15 +19,13 @@ function Login({ setShowLogin, setIsLogedIn, token, setToken, message, setMessag
     const password = (document.getElementById("password") as HTMLInputElement).value;
     const loginResult = await loginHandler({ username, password, setToken });
 
-    console.log(loginResult);
-
     if (loginResult === true) {
       setShowLogin(false);
       localStorage.setItem('token', token);
       setIsLogedIn(true);
       setMessage('Successfully logged in');
     } else {
-      alert('Failed to login. Please try again.');
+      setMessage('Login failed. Please try again.');
     }
   };
 

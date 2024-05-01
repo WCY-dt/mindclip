@@ -73,11 +73,11 @@ function Header({ routes, searchTerm, setSearchTerm, isLogedIn, setIsLogedIn, to
         </div>
         <button className="App-nav-button" onClick={toggleMenu}>{isOpen ? <Icon icon="ci:window-close" /> : <Icon icon="ci:window-sidebar" />}</button>
         {isOpen && (
-          <div className="App-nav-menu">
+          <ul className="App-nav-menu">
             {Object.entries(routes).map(([path, element]) => (
               <li className="App-nav-item"><Link to={path}>{element}</Link></li>
             ))}
-          </div>
+          </ul>
         )}
       </nav>
       <div className={`overlay ${(isOpen || showLogin) ? 'open' : ''}`} onClick={() => {
