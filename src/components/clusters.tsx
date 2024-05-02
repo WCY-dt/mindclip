@@ -30,7 +30,7 @@ function Clusters({ dataKey }: ClustersProps) {
 					setNeedReload(false);
 				}
 			});
-  }, [dataKey, selectedCategory, searchTerm, needReload]);
+  }, [dataKey, selectedCategory, searchTerm, needReload, setNeedReload]);
 
   if (isLoading) {
     return (
