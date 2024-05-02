@@ -1,0 +1,161 @@
+.Edit-title {
+  font-size: 2rem;
+  text-transform: capitalize;
+  font-weight: 900;
+}
+
+.Edit-input {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: auto 1fr;
+
+  align-items: start;
+  justify-content: center;
+
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.Edit-input select {
+  font-size: 1rem;
+  padding: 0.5rem;
+
+  width: 200px;
+
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+
+  border: 2px solid transparent;
+
+  cursor: pointer;
+}
+
+.Edit-input select:focus {
+  outline: none;
+  border-bottom: 2px solid #333333;
+}
+
+.Edit-input select option {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.Edit-input input {
+  font-size: 1rem;
+  padding: 0.5rem;
+
+  width: 500px;
+
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+
+  border: 2px solid transparent;
+}
+
+.Edit-input input:focus {
+  outline: none;
+  border-bottom: 2px solid #333333;
+}
+
+.Edit-input textarea {
+  font-size: 1rem;
+  padding: 0.5rem;
+
+  width: 500px;
+  min-height: 4.5rem;
+  max-height: 9rem;
+
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+
+  border: 2px solid transparent;
+
+  resize: vertical;
+}
+
+.Edit-input textarea:focus {
+  outline: none;
+  border-bottom: 2px solid #333333;
+}
+
+.Edit-input .Edit-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 516px;
+}
+
+.Edit-input .Edit-links .Edit-link {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.Edit-input .Edit-links .Edit-link .Edit-link-title {
+  width: 200px;
+}
+
+.Edit-input .Edit-links .Edit-link .Edit-link-url {}
+
+.Edit-input .Edit-links .Edit-link .Edit-link-delete {
+  font-size: 1.5rem;
+  width: 4rem;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.5);
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Edit-input .Edit-links .Edit-link .Edit-link-delete:hover {
+  background-color: rgba(255, 0, 0, 1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.1s;
+}
+
+.Edit-input .Edit-links .Edit-links-add {
+  font-size: 1.8rem;
+  color: black;
+  cursor: pointer;
+}
+
+.Edit-input label {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.Edit-ok {
+  font-size: 1rem;
+  padding: 0.5rem;
+  background-color: #333333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.Edit-ok:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.1s;
+}
+
+.Edit-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 2rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+
+  color: #333;
+  background-color: #fff;
+  border: none;
+}

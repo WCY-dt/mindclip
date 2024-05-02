@@ -7,6 +7,7 @@ import Content from '../components/content';
 import Footer from '../components/footer';
 import Notification from '../popups/notification';
 import Confirm from '../popups/confirm';
+import Edit from '../popups/edit';
 import Overlay from '../popups/overlay';
 import ClearFilter from '../utils/clearFilter';
 
@@ -32,6 +33,7 @@ function Router() {
 				<Notification />
 				<ClearFilter />
 				<Confirm />
+        <Edit />
 				<Overlay />
 		</AppProvider>
 	);

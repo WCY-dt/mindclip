@@ -20,6 +20,12 @@ export const AppContext = createContext({
 	setConfirmMessage: (_: string) => {},
 	confirmAction: () => {},
 	setConfirmAction: (_: () => void) => {},
+  showEdit: false,
+  setShowEdit: (_: boolean) => {},
+  editContent: null as ClusterProps | null,
+  setEditContent: (_: ClusterProps | null) => {},
+  editType: 'new' as 'new' | 'modify',
+  setEditType: (_: 'new' | 'modify') => {},
   showOverlay: false,
   setShowOverlay: (_: boolean) => {},
   overlayAction: () => {},
@@ -40,6 +46,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	const [showConfirm, setShowConfirm] = useState<boolean>(false);
 	const [confirmMessage, setConfirmMessage] = useState<string>('');
 	const [confirmAction, setConfirmAction] = useState<() => void>(() => () => {});
+  const [showEdit, setShowEdit] = useState<boolean>(false);
+  const [editContent, setEditContent] = useState<ClusterProps | null>(null);
+  const [editType, setEditType] = useState<'new' | 'modify'>('new');
 	const [showOverlay, setShowOverlay] = useState<boolean>(false);
   const [overlayAction, setOverlayAction] = useState<() => void>(() => () => {});
 	const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -73,6 +82,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 			showConfirm, setShowConfirm,
 			confirmMessage, setConfirmMessage,
 			confirmAction, setConfirmAction,
+      showEdit, setShowEdit,
+      editContent, setEditContent,
+      editType, setEditType,
 			showOverlay, setShowOverlay,
       overlayAction, setOverlayAction,
 			selectedCategory, setSelectedCategory,

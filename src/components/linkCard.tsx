@@ -22,7 +22,10 @@ function LinkCard({ item }: LinkCardProps) {
 		setConfirmAction,
 		setSelectedCategory,
     setShowOverlay,
-    setOverlayAction
+    setOverlayAction,
+    setShowEdit,
+    setEditContent,
+    setEditType
 	} = useContext(AppContext);
 
 	const id = item.Id || 0;
@@ -35,6 +38,14 @@ function LinkCard({ item }: LinkCardProps) {
     setSelectedCategory(item.Category);
   };
 
+  const onClickEdit = () => {
+    setEditContent(item);
+    setEditType('modify');
+    setShowEdit(true);
+    setShowOverlay(true);
+    setOverlayAction(() => () => setShowEdit(false));
+  };
+
 	const tryDeleteCard = async (id: number) => {
     const deleteCardResult = await deleteCardHandler({ id, token });
 
@@ -45,6 +56,14 @@ function LinkCard({ item }: LinkCardProps) {
     }
   };
 
+  const onClickDelete = () => {
+    setConfirmMessage('Are you sure to delete this card?');
+    setConfirmAction(() => () => tryDeleteCard(id));
+    setShowConfirm(true);
+    setShowOverlay(true);
+    setOverlayAction(() => () => setShowConfirm(false));
+  };
+
   return (
     <>
       <div className="link-card">
@@ -52,7 +71,7 @@ function LinkCard({ item }: LinkCardProps) {
         <div className="link-card-left">
           <div className="link-card-info">
             <div className="link-card-category" style={{ backgroundColor, color: textColor }} onClick={handleCategoryClick}>
-              {item.Category ? item.Category : 'UNKNOWN'}
+              {item.Category ?? 'UNKNOWN'}
             </div>
             <div className="link-card-icon">
               <img
@@ -64,14 +83,8 @@ function LinkCard({ item }: LinkCardProps) {
           </div>
           {isLogedIn ? (
             <div className="link-card-edit">
-              <Icon icon="ci:edit-pencil-line-01" className="link-card-edit-edit"></Icon>
-              <Icon icon="ci:trash-full" className="link-card-edit-delete" onClick={() => {
-								setConfirmMessage('Are you sure to delete this card?');
-								setConfirmAction(() => () => tryDeleteCard(id));
-								setShowConfirm(true);
-                setShowOverlay(true);
-                setOverlayAction(() => () => setShowConfirm(false));
-							}}></Icon>
+              <Icon icon="ci:edit-pencil-line-01" className="link-card-edit-edit" onClick={onClickEdit}></Icon>
+              <Icon icon="ci:trash-full" className="link-card-edit-delete" onClick={onClickDelete}></Icon>
             </div>
           ) : null
           }
@@ -79,10 +92,11 @@ function LinkCard({ item }: LinkCardProps) {
 
         <a
           className="link-card-right"
-          href={item.Url ? item.Url : '#'}
+          href={item.Url ?? '#'}
           target="_blank"
           rel="noopener noreferrer"
           id={uuidv4()}
+          title="Click to open link"
         >
           <div className="link-card-title">
             {item.Title}
@@ -95,7 +109,7 @@ function LinkCard({ item }: LinkCardProps) {
               {item.Detail}
             </div>
           ) : null}
-          {(item.links && item.links.length > 0) ? (
+          {(item.links?.length > 0) ? (
             <div className="link-card-link">
               {item.links.map((link) => (
                 <a
