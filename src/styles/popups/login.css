@@ -59,6 +59,7 @@
     right: 0;
     font-size: 2rem;
     padding: 0.5rem;
+    border-radius: 5px;
     cursor: pointer;
 
     color: #333;

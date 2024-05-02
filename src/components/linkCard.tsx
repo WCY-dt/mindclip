@@ -1,23 +1,32 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Icon } from '@iconify/react';
 import { v4 as uuidv4 } from 'uuid';
 
+import { AppContext } from '../contexts/context';
 import { getRandomColor, getContrastColor } from '../utils/randomColor';
-import Confirm from '../popups/confirm';
 import deleteCardHandler from '../services/deleteCardHandler';
 
 import '../styles/components/linkCard.css';
 
 interface LinkCardProps {
   item: ClusterProps;
-  setSelectedCategory: (value: string) => void;
-  isLogedIn: boolean;
-  token: string;
-  message: string | null;
-  setMessage: (value: string | null) => void;
 }
 
-function LinkCard({ item, setSelectedCategory, isLogedIn, token, message, setMessage }: LinkCardProps) {
+function LinkCard({ item }: LinkCardProps) {
+	const {
+		isLogedIn,
+		token,
+		setMessage,
+		setShowConfirm,
+		setConfirmMessage,
+		setConfirmAction,
+		setSelectedCategory,
+    setShowOverlay,
+    setOverlayAction
+	} = useContext(AppContext);
+
+	const id = item.Id || 0;
+
   const backgroundColor = getRandomColor(item.Category);
   const textColor = getContrastColor(backgroundColor);
 
@@ -26,11 +35,7 @@ function LinkCard({ item, setSelectedCategory, isLogedIn, token, message, setMes
     setSelectedCategory(item.Category);
   };
 
-  const [showConfirm, setShowConfirm] = useState<boolean>(false);
-  const confirmMessage = "Are you confirmed to delete this card?";
-
-  const tryDeleteCard = async () => {
-    const id = item.Id || 0;
+	const tryDeleteCard = async (id: number) => {
     const deleteCardResult = await deleteCardHandler({ id, token });
 
     if (deleteCardResult === true) {
@@ -43,6 +48,7 @@ function LinkCard({ item, setSelectedCategory, isLogedIn, token, message, setMes
   return (
     <>
       <div className="link-card">
+				<div id="link-card-id" hidden>{item.Id || 0}</div>
         <div className="link-card-left">
           <div className="link-card-info">
             <div className="link-card-category" style={{ backgroundColor, color: textColor }} onClick={handleCategoryClick}>
@@ -59,7 +65,13 @@ function LinkCard({ item, setSelectedCategory, isLogedIn, token, message, setMes
           {isLogedIn ? (
             <div className="link-card-edit">
               <Icon icon="ci:edit-pencil-line-01" className="link-card-edit-edit"></Icon>
-              <Icon icon="ci:trash-full" className="link-card-edit-delete" onClick={() => setShowConfirm(true)}></Icon>
+              <Icon icon="ci:trash-full" className="link-card-edit-delete" onClick={() => {
+								setConfirmMessage('Are you sure to delete this card?');
+								setConfirmAction(() => () => tryDeleteCard(id));
+								setShowConfirm(true);
+                setShowOverlay(true);
+                setOverlayAction(() => () => setShowConfirm(false));
+							}}></Icon>
             </div>
           ) : null
           }
@@ -100,7 +112,6 @@ function LinkCard({ item, setSelectedCategory, isLogedIn, token, message, setMes
           ) : null}
         </a>
       </div>
-      {showConfirm ? (<Confirm message={confirmMessage} setShowConfirm={setShowConfirm} actionHandler={tryDeleteCard}/>) : null}
     </>
   );
 }

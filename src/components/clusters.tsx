@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
+import { AppContext } from '../contexts/context';
 import LinkCard from '../components/linkCard';
-import ClearFilter from '../utils/clearFilter';
 import { fetchAndFilterData } from '../services/dataFetcher';
 
 import '../styles/components/clusters.css';
@@ -9,24 +9,28 @@ import '../styles/popups/loading.css';
 
 interface ClustersProps {
   dataKey: string;
-  searchTerm: string;
-  setSearchTerm: (value: string) => void;
-  isLogedIn: boolean;
-  token: string;
-  message: string | null;
-  setMessage: (value: string | null) => void;
 }
 
-function Clusters({ dataKey, searchTerm, setSearchTerm, isLogedIn, token, message, setMessage }: ClustersProps) {
+function Clusters({ dataKey }: ClustersProps) {
+	const {
+		needReload, setNeedReload,
+		selectedCategory,
+		searchTerm
+	} = useContext(AppContext);
+
   const [clusters, setClusters] = useState<ClusterProps[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     setIsLoading(true);
-    fetchAndFilterData(dataKey, true, selectedCategory, searchTerm, setClusters)
-      .finally(() => setIsLoading(false));
-  }, [dataKey, selectedCategory, searchTerm]);
+    fetchAndFilterData(dataKey, false, selectedCategory, searchTerm, setClusters)
+      .finally(() => {
+				setIsLoading(false);
+				if (needReload) {
+					setNeedReload(false);
+				}
+			});
+  }, [dataKey, selectedCategory, searchTerm, needReload]);
 
   if (isLoading) {
     return (
@@ -37,18 +41,12 @@ function Clusters({ dataKey, searchTerm, setSearchTerm, isLogedIn, token, messag
   return (
     <>
       <h1 className="Clusters-title">{dataKey}</h1>
-      <ClearFilter {...{ selectedCategory, setSelectedCategory, searchTerm, setSearchTerm }} />
       <div className="Clusters-list">
         {clusters.length > 0 ? (
           clusters.map((cluster: ClusterProps) => (
             <LinkCard
-              key={cluster.Title}
+              key={cluster.Id}
               item={cluster}
-              setSelectedCategory={setSelectedCategory}
-              isLogedIn={isLogedIn}
-              token={token}
-              message={message}
-              setMessage={setMessage}
             />
           ))
         ) : (

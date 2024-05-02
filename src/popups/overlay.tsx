@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 
+import { AppContext } from "../contexts/context";
 import "../styles/popups/overlay.css";
 
-interface OverlayProps {
-	showOverlay: boolean;
-	setShowOverlay: (value: boolean) => void;
-}
 
-function Overlay({ showOverlay, setShowOverlay }: OverlayProps) {
+function Overlay() {
+	const {
+		showOverlay, setShowOverlay,
+    overlayAction
+	} = useContext(AppContext);
+
 	return (
 		<>
 			<div className={`overlay ${showOverlay ? 'open' : ''}`} onClick={() => {
 				if (showOverlay) {
+          overlayAction();
 					setShowOverlay(false);
 				}
 			}}></div>

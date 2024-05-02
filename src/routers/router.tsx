@@ -1,59 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import { fetchCollection } from '../services/collectionFetcher';
+import { AppContext, AppProvider } from '../contexts/context';
 import Header from '../components/header';
 import Content from '../components/content';
 import Footer from '../components/footer';
 import Notification from '../popups/notification';
+import Confirm from '../popups/confirm';
 import Overlay from '../popups/overlay';
+import ClearFilter from '../utils/clearFilter';
 
 import '../styles/popups/loading.css';
 
+
 function Router() {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [isLogedIn, setIsLogedIn] = useState<boolean>(false);
+	const { isLoading } = useContext(AppContext);
 
-	const [routes, setRoutes] = useState({});
+	if (isLoading) {
+		return (
+			<div className="loading"></div>
+		);
+	}
 
-  const [token, setToken] = useState<string>('');
-  const [message, setMessage] = useState<string | null>(null);
-	const [showOverlay, setShowOverlay] = useState<boolean>(false)
-
-	const [searchTerm, setSearchTerm] = useState('');
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetchCollection(setRoutes)
-      .finally(() => setIsLoading(false));
-  }, []);
-
-  useEffect(() => {
-    if (localStorage.getItem('token')) {
-      setIsLogedIn(true);
-      setToken(localStorage.getItem('token') as string);
-    }
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="loading"></div>
-    );
-  }
-
-  return (
-    <>
-      <BrowserRouter>
-        <Header routes={routes} searchTerm={searchTerm} setSearchTerm={setSearchTerm} isLogedIn={isLogedIn} setIsLogedIn={setIsLogedIn} token={token} setToken={setToken} message={message} setMessage={setMessage} setShowOverlay={setShowOverlay} />
-
-				<Content routes={routes} searchTerm={searchTerm} setSearchTerm={setSearchTerm} isLogedIn={isLogedIn} token={token} setToken={setToken} message={message} setMessage={setMessage} setShowOverlay={setShowOverlay} />
-
-        <Footer />
-      </BrowserRouter>
-      <Notification message={message} setMessage={setMessage} />
-			<Overlay showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
-    </>
-  );
+	return (
+		<AppProvider>
+				<BrowserRouter>
+					<Header />
+					<Content />
+					<Footer />
+				</BrowserRouter>
+				<Notification />
+				<ClearFilter />
+				<Confirm />
+				<Overlay />
+		</AppProvider>
+	);
 }
 
 export default Router;

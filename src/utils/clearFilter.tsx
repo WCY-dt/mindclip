@@ -1,5 +1,7 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Icon } from '@iconify/react';
+
+import { AppContext } from '../contexts/context';
 
 function useKeyboardEvent(key: string, callback: Function) {
     useEffect(() => {
@@ -17,25 +19,25 @@ function useKeyboardEvent(key: string, callback: Function) {
     }, [key, callback]);
 }
 
-interface ClearFilterProps {
-  selectedCategory: string | null;
-  setSelectedCategory: (value: string | null) => void;
-  searchTerm: string;
-  setSearchTerm: (value: string) => void;
-}
+function ClearFilter() {
+		const {
+				setSelectedCategory,
+				setSearchTerm,
+				selectedCategory,
+				searchTerm
+		} = useContext(AppContext);
 
-function ClearFilter({ selectedCategory, setSelectedCategory, searchTerm, setSearchTerm}: ClearFilterProps) {
-    const clearFilter = useCallback(() => {
+    function clearFilter() {
         setSelectedCategory(null);
         setSearchTerm('');
-    }, [setSelectedCategory, setSearchTerm]);
+    }
 
     useKeyboardEvent('Escape', clearFilter);
 
     return (
       <>
         {(selectedCategory || searchTerm) && (
-          <button className="Clusters-cancel-filter" onClick={clearFilter}><Icon icon="ci:filter-off-outline" /></button>
+          <button className="Clusters-cancel-filter" onClick={clearFilter}title="Clear filter" ><Icon icon="ci:filter-off-outline" /></button>
         )}
       </>
     );

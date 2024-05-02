@@ -1,28 +1,25 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 
+import { AppContext } from '../contexts/context';
 import Login from '../popups/login';
 
 import '../styles/components/header.css';
 
-interface HeaderProps {
-  routes: { [key: string]: string };
-  searchTerm: string;
-  setSearchTerm: (value: string) => void;
-  isLogedIn: boolean;
-  setIsLogedIn: (value: boolean) => void;
-  token: string;
-  setToken: (value: string) => void;
-  message: string | null;
-  setMessage: (value: string | null) => void;
-	setShowOverlay: (value: boolean) => void;
-}
+function Header() {
+	const {
+		isLogedIn, setIsLogedIn,
+		routes,
+		setToken,
+		setMessage,
+		searchTerm, setSearchTerm,
+    setShowOverlay,
+    setOverlayAction
+	} = useContext(AppContext);
 
-function Header({ routes, searchTerm, setSearchTerm, isLogedIn, setIsLogedIn, token, setToken, message, setMessage, setShowOverlay }: HeaderProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    localStorage.removeItem('colorMap');
     if (inputRef.current) {
       inputRef.current.focus();
     }
@@ -36,9 +33,6 @@ function Header({ routes, searchTerm, setSearchTerm, isLogedIn, setIsLogedIn, to
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const [showLogin, setShowLogin] = useState(false);
-  const toggleLogin = () => {
-    setShowLogin(!showLogin);
-  };
   const toggleLogout = () => {
     setIsLogedIn(false);
     setToken('');
@@ -57,7 +51,7 @@ function Header({ routes, searchTerm, setSearchTerm, isLogedIn, setIsLogedIn, to
         </div>
         <ul className="App-nav-list">
           {Object.entries(routes).map(([path, element]) => (
-            <li className="App-nav-item"><Link to={path}>{element}</Link></li>
+						<li className="App-nav-item"><Link to={path}>{element as React.ReactNode}</Link></li>
           ))}
         </ul>
         <div className="App-nav-right">
@@ -72,22 +66,25 @@ function Header({ routes, searchTerm, setSearchTerm, isLogedIn, setIsLogedIn, to
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <button className={`App-nav-login`} onClick={isLogedIn ? toggleLogout : toggleLogin} title="Login">{isLogedIn ? <Icon icon="ci:log-out" /> : <Icon icon="ci:user-01" />}</button>
+          <button className={`App-nav-login`} onClick={isLogedIn ? toggleLogout : () => {
+            setShowLogin(true);
+            setShowOverlay(true);
+            setOverlayAction(() => () => setShowLogin(false));
+          }} title="Login">{isLogedIn ? <Icon icon="ci:log-out" /> : <Icon icon="ci:user-01" />}</button>
         </div>
-        <button className="App-nav-button" onClick={toggleMenu}>{isOpen ? <Icon icon="ci:window-close" /> : <Icon icon="ci:window-sidebar" />}</button>
+        <button className="App-nav-button" onClick={toggleMenu} title="Open/Close navigator">{isOpen ? <Icon icon="ci:window-close" /> : <Icon icon="ci:window-sidebar" />}</button>
         {isOpen && (
           <ul className="App-nav-menu">
             {Object.entries(routes).map(([path, element]) => (
-              <li className="App-nav-item"><Link to={path}>{element}</Link></li>
+							<li className="App-nav-item"><Link to={path}>{element as React.ReactNode}</Link></li>
             ))}
           </ul>
         )}
       </nav>
-      <div className={`overlay ${(isOpen || showLogin) ? 'open' : ''}`} onClick={() => {
+      <div className={`overlay ${isOpen ? 'open' : ''}`} onClick={() => {
         if (isOpen) toggleMenu();
-        if (showLogin) toggleLogin();
       }}></div>
-      {showLogin && <Login setShowLogin={setShowLogin} setIsLogedIn={setIsLogedIn} token={token} setToken={setToken} message={message} setMessage={setMessage} /> }
+      {showLogin && <Login setShowLogin={setShowLogin} /> }
     </header>
   )
 }

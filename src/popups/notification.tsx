@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
+import { AppContext } from '../contexts/context';
 import '../styles/popups/notification.css';
 
-interface NotificationProps {
-    message: string | null;
-    setMessage: (value: string | null) => void;
-}
+function Notification() {
+	const {
+		message, setMessage
+	} = useContext(AppContext);
 
-function Notification({ message, setMessage }: NotificationProps) {
     const [visible, setVisible] = useState<boolean>(false);
 
     useEffect(() => {

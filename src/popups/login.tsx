@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Icon } from '@iconify/react';
 
+import { AppContext } from '../contexts/context';
 import loginHandler from '../services/loginHandler';
 
 import '../styles/popups/popup.css';
@@ -8,14 +9,16 @@ import '../styles/popups/login.css';
 
 interface LoginProps {
   setShowLogin: (value: boolean) => void;
-  setIsLogedIn: (value: boolean) => void;
-  token: string;
-  setToken: (value: string) => void;
-  message: string | null;
-  setMessage: (value: string | null) => void;
 }
 
-function Login({ setShowLogin, setIsLogedIn, token, setToken, message, setMessage }: LoginProps) {
+function Login({ setShowLogin }: LoginProps) {
+  const {
+    setIsLogedIn,
+    token, setToken,
+    setMessage,
+    setShowOverlay
+  } = useContext(AppContext);
+
   const tryLogin = async () => {
     const username = (document.getElementById("username") as HTMLInputElement).value;
     const password = (document.getElementById("password") as HTMLInputElement).value;
@@ -23,6 +26,7 @@ function Login({ setShowLogin, setIsLogedIn, token, setToken, message, setMessag
 
     if (loginResult === true) {
       setShowLogin(false);
+      setShowOverlay(false);
       localStorage.setItem('token', token);
       setIsLogedIn(true);
       setMessage('Successfully logged in');
@@ -43,7 +47,10 @@ function Login({ setShowLogin, setIsLogedIn, token, setToken, message, setMessag
           <input type="password" id="password" name="password" />
         </div>
         <button type="button" className="Login-button" onClick={tryLogin}>confirm</button>
-        <button type="button" className="Login-close" title="Close" onClick={() => setShowLogin(false)}>
+        <button type="button" className="Login-close" title="Close" onClick={() => {
+          setShowLogin(false);
+          setShowOverlay(false);
+        }}>
           <Icon icon="ci:close-md" />
         </button>
       </div>
