@@ -8,6 +8,7 @@ import "../styles/popups/edit.css";
 
 function Edit() {
   const {
+    routes,
     showEdit, setShowEdit,
     editContent,
     editType,
@@ -18,6 +19,8 @@ function Edit() {
     return null;
   }
 
+  const routesArray = Object.entries(routes).map(([value, label]) => ({ value, label }));
+
   return (
     <div className="Popup">
       <div className="Edit-title">Edit</div>
@@ -25,9 +28,11 @@ function Edit() {
         <label htmlFor="collection">Collection</label>
 
         <select id="collection" name="collection">
-          <option value="links">Links</option>
-          <option value="notes">Notes</option>
-          <option value="todos">Todos</option>
+          {routesArray.map((route, index) => (
+            <option key={index} value={route.label as string}>
+              {route.label as string}
+            </option>
+          ))}
         </select>
 
         <label htmlFor="title">Title</label>
@@ -49,8 +54,8 @@ function Edit() {
         <div className="Edit-links">
           {editType === 'modify' && editContent?.links?.map((link) => (
             <div key={link.Url} className="Edit-link">
-              <input type="text" name="link-title" className="Edit-link-title" defaultValue={link.Title} />
-              <input type="url" name="link-url" className="Edit-link-url" defaultValue={link.Url} />
+              <input type="text" name="link-title" className="Edit-link-title" defaultValue={link.Title} title="Link Title" />
+              <input type="url" name="link-url" className="Edit-link-url" defaultValue={link.Url} title="Link URL" />
               <Icon icon="ci:trash-full" className="Edit-link-delete"></Icon>
             </div>
           ))}

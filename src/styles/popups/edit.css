@@ -118,8 +118,12 @@
 
 .Edit-input .Edit-links .Edit-links-add {
   font-size: 1.8rem;
-  color: black;
+  color: #666666;
   cursor: pointer;
+}
+
+.Edit-input .Edit-links .Edit-links-add:hover {
+  color: black;
 }
 
 .Edit-input label {

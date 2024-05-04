@@ -65,14 +65,15 @@
     flex-direction: column;
     justify-content: end;
     align-items: center;
-
+    color: #666666;
     gap: 5px;
-
     font-size: 1.5rem;
-
     width: 100%;
-
     cursor: pointer;
+}
+
+.link-card-edit:hover {
+    color: black;
 }
 
 .link-card-edit-delete {
