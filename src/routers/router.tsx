@@ -15,7 +15,7 @@ import '../styles/popups/loading.css';
 
 
 function Router() {
-	const { isLoading } = useContext(AppContext);
+	const { isLoading: isLoading } = useContext(AppContext);
 
 	if (isLoading) {
 		return (

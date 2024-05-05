@@ -7,33 +7,32 @@ import loginHandler from '../services/loginHandler';
 import '../styles/popups/popup.css';
 import '../styles/popups/login.css';
 
-interface LoginProps {
-  setShowLogin: (value: boolean) => void;
-}
-
-function Login({ setShowLogin }: LoginProps) {
+function Login() {
   const {
-    setIsLogedIn,
+    setShowLogin,
+    setLogin,
     token, setToken,
-    setMessage,
-    setShowOverlay
+    dispatchNotification
   } = useContext(AppContext);
 
-  const tryLogin = async () => {
+  const onClickLogin = async () => {
     const username = (document.getElementById("username") as HTMLInputElement).value;
     const password = (document.getElementById("password") as HTMLInputElement).value;
     const loginResult = await loginHandler({ username, password, setToken });
 
     if (loginResult === true) {
       setShowLogin(false);
-      setShowOverlay(false);
       localStorage.setItem('token', token);
-      setIsLogedIn(true);
-      setMessage('Successfully logged in');
+      setLogin(true);
+      dispatchNotification({ type: 'SUCCESS', message: 'Login' });
     } else {
-      setMessage('Login failed. Please try again.');
+      dispatchNotification({ type: 'ERROR', message: 'Login' });
     }
   };
+
+  const onClickClose = () => {
+    setShowLogin(false);
+  }
 
   return (
     <>
@@ -46,13 +45,8 @@ function Login({ setShowLogin }: LoginProps) {
           <label htmlFor="password">Password</label>
           <input type="password" id="password" name="password" />
         </div>
-        <button type="button" className="Login-button" onClick={tryLogin}>confirm</button>
-        <button type="button" className="Login-close" title="Close" onClick={() => {
-          setShowLogin(false);
-          setShowOverlay(false);
-        }}>
-          <Icon icon="ci:close-md" />
-        </button>
+        <button type="button" className="Login-button" onClick={onClickLogin}>confirm</button>
+        <button type="button" className="Login-close" title="Close" onClick={onClickClose}><Icon icon="ci:close-md" /></button>
       </div>
     </>
   );

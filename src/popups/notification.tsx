@@ -1,37 +1,63 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, Dispatch, SetStateAction } from 'react';
 
-import { AppContext } from '../contexts/context';
+import { AppContext, NotificationState } from '../contexts/context';
 import '../styles/popups/notification.css';
 
+function useNotificationMessage(notification: NotificationState) {
+  const [notificationMessage, setNotificationMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    switch (notification.type) {
+      case 'SUCCESS':
+        setNotificationMessage(notification.message + ' successfully');
+        break;
+      case 'ERROR':
+        setNotificationMessage(notification.message + ' failed, please try again');
+        break;
+      default:
+        setNotificationMessage(null);
+    }
+  }, [notification]);
+
+  return [notificationMessage, setNotificationMessage] as const;
+}
+
+function useNotificationVisibility(notificationMessage: string | null, setNotificationMessage: Dispatch<SetStateAction<string | null>>) {
+  const [showNotification, setShowNotification] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (notificationMessage) {
+      setShowNotification(true);
+
+      const visibilityTimer = setTimeout(() => {
+        setShowNotification(false);
+      }, 2000);
+      const messageTimer = setTimeout(() => {
+        setNotificationMessage(null);
+      }, 4000);
+
+      return () => {
+        clearTimeout(visibilityTimer);
+        clearTimeout(messageTimer);
+      };
+    }
+    return;
+  }, [notificationMessage, setNotificationMessage]);
+
+  return showNotification;
+}
+
 function Notification() {
-	const {
-		message, setMessage
-	} = useContext(AppContext);
+  const { notification } = useContext(AppContext);
 
-    const [visible, setVisible] = useState<boolean>(false);
+  const [notificationMessage, setNotificationMessage] = useNotificationMessage(notification);
+  const showNotification = useNotificationVisibility(notificationMessage, setNotificationMessage);
 
-    useEffect(() => {
-        if (message !== null) {
-            setVisible(true);
-            const visibilityTimer = setTimeout(() => {
-                setVisible(false);
-            }, 2000);
-            const messageTimer = setTimeout(() => {
-                setMessage(null);
-            }, 4000);
-            return () => {
-                clearTimeout(visibilityTimer);
-                clearTimeout(messageTimer);
-            };
-        }
-        return;
-    }, [message, setMessage]);
-
-    return (
-        <div className={`notification ${visible ? 'show' : ''}`}>
-            {message}
-        </div>
-    );
+  return (
+    <div className={`notification ${showNotification ? 'show' : ''}`}>
+      {notificationMessage}
+    </div>
+  );
 }
 
 export default Notification;

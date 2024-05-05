@@ -1,19 +1,42 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useReducer } from 'react';
 import { fetchCollection } from '../services/collectionFetcher';
+
+export type NotificationState = {
+  type: string;
+  message: string;
+};
+export type NotificationAction = {
+  type: 'SUCCESS' | 'ERROR';
+  message: string;
+};
+const notificationReducer = (state: NotificationState, action: NotificationAction) => {
+  switch (action.type) {
+    case 'SUCCESS':
+      return { ...state, type: 'SUCCESS', message: action.message };
+    case 'ERROR':
+      return { ...state, type: 'ERROR', message: action.message };
+    default:
+      return state;
+  }
+}
 
 export const AppContext = createContext({
   isLoading: false,
-  setIsLoading: (_: boolean) => {},
-  isLogedIn: false,
-  setIsLogedIn: (_: boolean) => {},
+  setLoading: (_: boolean) => {},
+  showLogin: false,
+  setShowLogin: (_: boolean) => {},
+  isLogin: false,
+  setLogin: (_: boolean) => {},
+  showMobileMenu: false,
+  setShowMobileMenu: (_: boolean) => {},
   needReload: false,
-  setNeedReload: (_: boolean) => {},
+  setReload: (_: boolean) => {},
   routes: {},
 	setRoutes: (_: {[_: string]: React.ReactNode}) => {},
   token: '',
   setToken: (_: string) => {},
-  message: null as string | null,
-  setMessage: (_: string | null) => {},
+  notification: { type: '', message: '' },
+  dispatchNotification: (_: NotificationAction) => {},
 	showConfirm: false,
 	setShowConfirm: (_: boolean) => {},
 	confirmMessage: '',
@@ -26,10 +49,6 @@ export const AppContext = createContext({
   setEditContent: (_: ClusterProps | null) => {},
   editType: 'new' as 'new' | 'modify',
   setEditType: (_: 'new' | 'modify') => {},
-  showOverlay: false,
-  setShowOverlay: (_: boolean) => {},
-  overlayAction: () => {},
-  setOverlayAction: (_: () => void) => {},
 	selectedCategory: null as string | null,
 	setSelectedCategory: (_: string | null) => {},
   searchTerm: '',
@@ -37,32 +56,32 @@ export const AppContext = createContext({
 });
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const [isLogedIn, setIsLogedIn] = useState<boolean>(false);
+	const [isLoading, setLoading] = useState<boolean>(true);
+  const [showLogin, setShowLogin] = useState<boolean>(false);
+	const [isLogin, setLogin] = useState<boolean>(false);
+  const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
 	const [needReload, setNeedReload] = useState<boolean>(false);
 	const [routes, setRoutes] = useState({});
 	const [token, setToken] = useState<string>('');
-	const [message, setMessage] = useState<string | null>(null);
+  const [notification, dispatchNotification] = useReducer(notificationReducer, { type: '', message: '' });
 	const [showConfirm, setShowConfirm] = useState<boolean>(false);
 	const [confirmMessage, setConfirmMessage] = useState<string>('');
 	const [confirmAction, setConfirmAction] = useState<() => void>(() => () => {});
   const [showEdit, setShowEdit] = useState<boolean>(false);
   const [editContent, setEditContent] = useState<ClusterProps | null>(null);
   const [editType, setEditType] = useState<'new' | 'modify'>('new');
-	const [showOverlay, setShowOverlay] = useState<boolean>(false);
-  const [overlayAction, setOverlayAction] = useState<() => void>(() => () => {});
 	const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 	const [searchTerm, setSearchTerm] = useState('');
 
 	useEffect(() => {
-		setIsLoading(true);
+		setLoading(true);
 		fetchCollection(setRoutes)
-			.finally(() => setIsLoading(false));
+			.finally(() => setLoading(false));
 	}, []);
 
 	useEffect(() => {
 		if (localStorage.getItem('token')) {
-			setIsLogedIn(true);
+			setLogin(true);
 			setToken(localStorage.getItem('token') as string);
 		}
 	}, []);
@@ -73,20 +92,20 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
 	return (
 		<AppContext.Provider value={{
-			isLoading, setIsLoading,
-			isLogedIn, setIsLogedIn,
-			needReload, setNeedReload,
+			isLoading, setLoading,
+      showLogin, setShowLogin,
+			isLogin, setLogin,
+      showMobileMenu, setShowMobileMenu,
+			needReload, setReload: setNeedReload,
 			routes, setRoutes,
 			token, setToken,
-			message, setMessage,
+      notification, dispatchNotification,
 			showConfirm, setShowConfirm,
 			confirmMessage, setConfirmMessage,
 			confirmAction, setConfirmAction,
       showEdit, setShowEdit,
       editContent, setEditContent,
       editType, setEditType,
-			showOverlay, setShowOverlay,
-      overlayAction, setOverlayAction,
 			selectedCategory, setSelectedCategory,
 			searchTerm, setSearchTerm
 		}}>

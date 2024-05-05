@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 
@@ -8,15 +8,15 @@ import Login from '../popups/login';
 import '../styles/components/header.css';
 
 function Header() {
-	const {
-		isLogedIn, setIsLogedIn,
-		routes,
-		setToken,
-		setMessage,
-		searchTerm, setSearchTerm,
-    setShowOverlay,
-    setOverlayAction
-	} = useContext(AppContext);
+  const {
+    showLogin, setShowLogin,
+    isLogin, setLogin,
+    showMobileMenu, setShowMobileMenu,
+    routes,
+    setToken,
+    dispatchNotification,
+    searchTerm, setSearchTerm
+  } = useContext(AppContext);
 
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -25,19 +25,27 @@ function Header() {
     }
   }, []);
 
-  const handleClearFilter = () => {
+  const onClickClearFilter = () => {
     setSearchTerm('');
   };
 
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const onClickOpenMenu = () => {
+    setShowMobileMenu(true);
+  }
 
-  const [showLogin, setShowLogin] = useState(false);
-  const toggleLogout = () => {
-    setIsLogedIn(false);
+  const onClickCloseMenu = () => {
+    setShowMobileMenu(false);
+  }
+
+  const onClickLogin = () => {
+    setShowLogin(true);
+  }
+
+  const onClickLogout = () => {
+    setLogin(false);
     setToken('');
     localStorage.removeItem('token');
-    setMessage('Successfully logged out');
+    dispatchNotification({ type: 'SUCCESS', message: 'Logout' });
   };
 
   return (
@@ -51,12 +59,12 @@ function Header() {
         </div>
         <ul className="App-nav-list">
           {Object.entries(routes).map(([path, element]) => (
-						<li className="App-nav-item"><Link to={path}>{element as React.ReactNode}</Link></li>
+            <li className="App-nav-item"><Link to={path}>{element as React.ReactNode}</Link></li>
           ))}
         </ul>
         <div className="App-nav-right">
-          <div className={`App-nav-search ${isOpen ? 'open' : ''}`}>
-            {searchTerm ? <Icon className="App-nav-search-icon" icon="ci:close-md" onClick={handleClearFilter} /> : <Icon className="App-nav-search-icon" icon="ci:filter-outline" />}
+          <div className={`App-nav-search ${showMobileMenu ? 'open' : ''}`}>
+            {searchTerm ? <Icon className="App-nav-search-icon" icon="ci:close-md" onClick={onClickClearFilter} /> : <Icon className="App-nav-search-icon" icon="ci:filter-outline" />}
             <input
               ref={inputRef}
               className="App-nav-search-input"
@@ -66,25 +74,24 @@ function Header() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <button className={`App-nav-login`} onClick={isLogedIn ? toggleLogout : () => {
-            setShowLogin(true);
-            setShowOverlay(true);
-            setOverlayAction(() => () => setShowLogin(false));
-          }} title="Login">{isLogedIn ? <Icon icon="ci:log-out" /> : <Icon icon="ci:user-01" />}</button>
+          {isLogin ?
+            <button type="button" className="App-nav-login" onClick={onClickLogout} title="Log out"><Icon icon="ci:log-out" /></button> :
+            <button type="button" className="App-nav-login" onClick={onClickLogin} title="Log in"><Icon icon="ci:user-01" /></button>
+          }
         </div>
-        <button className="App-nav-button" onClick={toggleMenu} title="Open/Close navigator">{isOpen ? <Icon icon="ci:window-close" /> : <Icon icon="ci:window-sidebar" />}</button>
-        {isOpen && (
+        {showMobileMenu ?
+          <button className="App-nav-button" onClick={onClickCloseMenu} title="Close menu"><Icon icon="ci:window-close" /></button> :
+          <button className="App-nav-button" onClick={onClickOpenMenu} title="Open menu"><Icon icon="ci:window-sidebar" /></button>
+        }
+        {showMobileMenu && (
           <ul className="App-nav-menu">
             {Object.entries(routes).map(([path, element]) => (
-							<li className="App-nav-item"><Link to={path}>{element as React.ReactNode}</Link></li>
+              <li className="App-nav-item"><Link to={path}>{element as React.ReactNode}</Link></li>
             ))}
           </ul>
         )}
       </nav>
-      <div className={`overlay ${isOpen ? 'open' : ''}`} onClick={() => {
-        if (isOpen) toggleMenu();
-      }}></div>
-      {showLogin && <Login setShowLogin={setShowLogin} /> }
+      {showLogin && <Login />}
     </header>
   )
 }

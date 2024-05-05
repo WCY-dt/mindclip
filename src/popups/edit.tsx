@@ -11,9 +11,12 @@ function Edit() {
     routes,
     showEdit, setShowEdit,
     editContent,
-    editType,
-    setShowOverlay
+    editType
   } = useContext(AppContext);
+
+  const onClickClose = () => {
+    setShowEdit(false);
+  }
 
   if (!showEdit) {
     return null;
@@ -63,10 +66,7 @@ function Edit() {
         </div>
       </div>
       <button type="button" className="Edit-ok" title="Save edit">Save</button>
-      <button type="button" className="Edit-close" title="Close" onClick={() => {
-        setShowEdit(false);
-        setShowOverlay(false);
-      }}>
+      <button type="button" className="Edit-close" title="Close" onClick={onClickClose}>
         <Icon icon="ci:close-md" />
       </button>
     </div>

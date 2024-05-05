@@ -13,7 +13,7 @@ interface ClustersProps {
 
 function Clusters({ dataKey }: ClustersProps) {
 	const {
-		needReload, setNeedReload,
+		needReload, setReload: setNeedReload,
 		selectedCategory,
 		searchTerm
 	} = useContext(AppContext);

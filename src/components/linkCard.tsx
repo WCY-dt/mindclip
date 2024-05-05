@@ -14,15 +14,14 @@ interface LinkCardProps {
 
 function LinkCard({ item }: LinkCardProps) {
 	const {
-		isLogedIn,
+		isLogin,
+    setReload,
 		token,
-		setMessage,
+    dispatchNotification,
 		setShowConfirm,
 		setConfirmMessage,
 		setConfirmAction,
 		setSelectedCategory,
-    setShowOverlay,
-    setOverlayAction,
     setShowEdit,
     setEditContent,
     setEditType
@@ -42,26 +41,22 @@ function LinkCard({ item }: LinkCardProps) {
     setEditContent(item);
     setEditType('modify');
     setShowEdit(true);
-    setShowOverlay(true);
-    setOverlayAction(() => () => setShowEdit(false));
   };
 
 	const tryDeleteCard = async (id: number) => {
     const deleteCardResult = await deleteCardHandler({ id, token });
 
     if (deleteCardResult === true) {
-      setMessage('Successfully deleted');
+      dispatchNotification({ type: 'SUCCESS', message: 'Card delete' });
     } else {
-      setMessage('Failed to delete. Please try again.');
+      dispatchNotification({ type: 'ERROR', message: 'Card delete' });
     }
   };
 
   const onClickDelete = () => {
     setConfirmMessage('Are you sure to delete this card?');
-    setConfirmAction(() => () => tryDeleteCard(id));
+    setConfirmAction(() => () => {tryDeleteCard(id);});
     setShowConfirm(true);
-    setShowOverlay(true);
-    setOverlayAction(() => () => setShowConfirm(false));
   };
 
   return (
@@ -81,7 +76,7 @@ function LinkCard({ item }: LinkCardProps) {
               />
             </div>
           </div>
-          {isLogedIn ? (
+          {isLogin ? (
             <div className="link-card-edit">
               <Icon icon="ci:edit-pencil-line-01" className="link-card-edit-edit" onClick={onClickEdit}></Icon>
               <Icon icon="ci:trash-full" className="link-card-edit-delete" onClick={onClickDelete}></Icon>
