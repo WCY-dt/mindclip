@@ -5,8 +5,8 @@ import { AppContext } from '../hooks/appContext';
 import { useNotification } from '../hooks/notificationContext';
 import loginHandler from '../services/loginHandler';
 
-import '../styles/popups/popup.css';
-import '../styles/popups/login.css';
+import './styles/popup.css';
+import './styles/login.css';
 
 type LoginContextType = {
   isLogin: boolean;

@@ -2,8 +2,8 @@ import React, { createContext, useState, useEffect, useContext } from 'react';
 
 import { AppContext } from './appContext';
 
-import '../styles/popups/popup.css';
-import '../styles/popups/confirm.css';
+import './styles/popup.css';
+import './styles/confirm.css';
 
 type ConfirmAction = {
   message: string;

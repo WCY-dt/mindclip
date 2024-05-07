@@ -1,6 +1,6 @@
 import React, { createContext, useState, useReducer, useEffect, useContext } from 'react';
 
-import '../styles/popups/notification.css';
+import './styles/notification.css';
 
 type NotificationAction = {
   type: 'SUCCESS' | 'ERROR';

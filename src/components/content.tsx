@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { AppContext } from '../hooks/appContext';
 import Cluster from '../components/clusters';
 
-import '../styles/components/content.css';
+import './styles/content.css';
 
 function Content() {
   const {

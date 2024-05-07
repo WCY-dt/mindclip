@@ -12,7 +12,7 @@ import Footer from '../components/footer';
 import Overlay from '../components/overlay';
 import ClearFilter from '../utils/clearFilter';
 
-import '../styles/popups/loading.css';
+import '../styles/loading.css';
 
 
 function Router() {

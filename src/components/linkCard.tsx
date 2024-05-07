@@ -5,7 +5,7 @@ import { AppContext } from '../hooks/appContext';
 import EditButton from '../components/editButton';
 import { getRandomColor, getContrastColor } from '../utils/randomColor';
 
-import '../styles/components/linkCard.css';
+import './styles/linkCard.css';
 
 type LinkCardProps = {
   item: ClusterProps;

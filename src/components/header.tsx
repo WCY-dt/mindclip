@@ -6,7 +6,7 @@ import { useNotification } from '../hooks/notificationContext';
 import { AppContext } from '../hooks/appContext';
 import { useIsLogin, useShowLogin } from '../hooks/loginContext';
 
-import '../styles/components/header.css';
+import './styles/header.css';
 
 function Header() {
   const {

@@ -4,7 +4,7 @@ import { AppContext } from "../hooks/appContext";
 import { useShowConfirm } from "../hooks/confirmContext";
 import { useShowLogin } from "../hooks/loginContext";
 import { useShowEdit } from "../hooks/editContext";
-import "../styles/popups/overlay.css";
+import "./styles/overlay.css";
 
 
 function Overlay() {

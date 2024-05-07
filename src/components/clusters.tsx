@@ -4,8 +4,8 @@ import { AppContext } from '../hooks/appContext';
 import LinkCard from '../components/linkCard';
 import { fetchAndFilterData } from '../services/dataFetcher';
 
-import '../styles/components/clusters.css';
-import '../styles/popups/loading.css';
+import './styles/clusters.css';
+import '../styles/loading.css';
 
 interface ClustersProps {
   dataKey: string;

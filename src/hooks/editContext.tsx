@@ -3,8 +3,8 @@ import { Icon } from '@iconify/react';
 
 import { AppContext } from "./appContext";
 
-import "../styles/popups/popup.css";
-import "../styles/popups/edit.css";
+import "./styles/popup.css";
+import "./styles/edit.css";
 
 type EditProps = {
   type: 'ADD' | 'MODIFY';

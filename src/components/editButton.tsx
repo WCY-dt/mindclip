@@ -9,7 +9,7 @@ import { useEdit } from '../hooks/editContext';
 import { AppContext } from '../hooks/appContext';
 import deleteCardHandler from '../services/deleteCardHandler';
 
-import '../styles/components/editButton.css';
+import './styles/editButton.css';
 
 type EditButtonProps = {
   item: ClusterProps;
