@@ -1,24 +1,5 @@
-import React, { createContext, useState, useEffect, useReducer } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { fetchCollection } from '../services/collectionFetcher';
-
-export type NotificationState = {
-  type: string;
-  message: string;
-};
-export type NotificationAction = {
-  type: 'SUCCESS' | 'ERROR';
-  message: string;
-};
-const notificationReducer = (state: NotificationState, action: NotificationAction) => {
-  switch (action.type) {
-    case 'SUCCESS':
-      return { ...state, type: 'SUCCESS', message: action.message };
-    case 'ERROR':
-      return { ...state, type: 'ERROR', message: action.message };
-    default:
-      return state;
-  }
-}
 
 export const AppContext = createContext({
   isLoading: false,
@@ -35,9 +16,7 @@ export const AppContext = createContext({
 	setRoutes: (_: {[_: string]: React.ReactNode}) => {},
   token: '',
   setToken: (_: string) => {},
-  notification: { type: '', message: '' },
-  dispatchNotification: (_: NotificationAction) => {},
-	showConfirm: false,
+  showConfirm: false,
 	setShowConfirm: (_: boolean) => {},
 	confirmMessage: '',
 	setConfirmMessage: (_: string) => {},
@@ -63,7 +42,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	const [needReload, setNeedReload] = useState<boolean>(false);
 	const [routes, setRoutes] = useState({});
 	const [token, setToken] = useState<string>('');
-  const [notification, dispatchNotification] = useReducer(notificationReducer, { type: '', message: '' });
 	const [showConfirm, setShowConfirm] = useState<boolean>(false);
 	const [confirmMessage, setConfirmMessage] = useState<string>('');
 	const [confirmAction, setConfirmAction] = useState<() => void>(() => () => {});
@@ -80,14 +58,14 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	}, []);
 
 	useEffect(() => {
-		if (localStorage.getItem('token')) {
+    if (sessionStorage.getItem('token')) {
 			setLogin(true);
-			setToken(localStorage.getItem('token') as string);
+      setToken(sessionStorage.getItem('token') as string);
 		}
 	}, []);
 
 	useEffect(() => {
-		localStorage.removeItem('colorMap');
+		sessionStorage.removeItem('colorMap');
 	}, []);
 
 	return (
@@ -99,7 +77,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 			needReload, setReload: setNeedReload,
 			routes, setRoutes,
 			token, setToken,
-      notification, dispatchNotification,
 			showConfirm, setShowConfirm,
 			confirmMessage, setConfirmMessage,
 			confirmAction, setConfirmAction,

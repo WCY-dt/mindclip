@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Icon } from '@iconify/react';
 import { v4 as uuidv4 } from 'uuid';
 
+import { useNotification } from '../hooks/notificationContext';
 import { AppContext } from '../contexts/context';
 import { getRandomColor, getContrastColor } from '../utils/randomColor';
 import deleteCardHandler from '../services/deleteCardHandler';
@@ -16,7 +17,6 @@ function LinkCard({ item }: LinkCardProps) {
 	const {
 		isLogin,
 		token,
-    dispatchNotification,
 		setShowConfirm,
 		setConfirmMessage,
 		setConfirmAction,
@@ -25,6 +25,8 @@ function LinkCard({ item }: LinkCardProps) {
     setEditContent,
     setEditType
 	} = useContext(AppContext);
+
+  const setNotification = useNotification();
 
 	const id = item.Id || 0;
 
@@ -46,9 +48,9 @@ function LinkCard({ item }: LinkCardProps) {
     const deleteCardResult = await deleteCardHandler({ id, token });
 
     if (deleteCardResult === true) {
-      dispatchNotification({ type: 'SUCCESS', message: 'Card delete' });
+      setNotification({ type: 'SUCCESS', message: 'Card delete' });
     } else {
-      dispatchNotification({ type: 'ERROR', message: 'Card delete' });
+      setNotification({ type: 'ERROR', message: 'Card delete' });
     }
   };
 

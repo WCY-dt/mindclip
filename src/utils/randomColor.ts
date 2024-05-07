@@ -19,7 +19,7 @@ function generateRandomColor() {
 }
 
 export function getRandomColor(category: string) {
-    let colorMap = JSON.parse(localStorage.getItem('colorMap') ?? '{}') || { 'default': '#d1ecf1' };
+  let colorMap = JSON.parse(sessionStorage.getItem('colorMap') ?? '{}') || { 'default': '#d1ecf1' };
 
     if (!colorMap[category]) {
         let randomColor;
@@ -27,7 +27,7 @@ export function getRandomColor(category: string) {
             randomColor = generateRandomColor();
         } while (calculateBrightness(hexToRgb(randomColor)) > 200);
         colorMap[category] = randomColor;
-        localStorage.setItem('colorMap', JSON.stringify(colorMap));
+        sessionStorage.setItem('colorMap', JSON.stringify(colorMap));
     }
 
     return colorMap[category] || colorMap['default'];

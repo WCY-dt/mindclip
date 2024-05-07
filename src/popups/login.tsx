@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Icon } from '@iconify/react';
 
+import { useNotification } from '../hooks/notificationContext';
 import { AppContext } from '../contexts/context';
 import loginHandler from '../services/loginHandler';
 
@@ -11,9 +12,10 @@ function Login() {
   const {
     setShowLogin,
     setLogin,
-    token, setToken,
-    dispatchNotification
+    token, setToken
   } = useContext(AppContext);
+
+  const setNotification = useNotification();
 
   const onClickLogin = async () => {
     const username = (document.getElementById("username") as HTMLInputElement).value;
@@ -22,11 +24,11 @@ function Login() {
 
     if (loginResult === true) {
       setShowLogin(false);
-      localStorage.setItem('token', token);
+      sessionStorage.setItem('token', token);
       setLogin(true);
-      dispatchNotification({ type: 'SUCCESS', message: 'Login' });
+      setNotification({ type: 'SUCCESS', message: 'login' });
     } else {
-      dispatchNotification({ type: 'ERROR', message: 'Login' });
+      setNotification({ type: 'ERROR', message: 'login' });
     }
   };
 

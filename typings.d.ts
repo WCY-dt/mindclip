@@ -1,4 +1,4 @@
-interface ClusterProps {
+type ClusterProps = {
     Id: number | undefined;
     Collection: string;
     Category: string;
@@ -9,7 +9,7 @@ interface ClusterProps {
     links: {
         Id: number | undefined,
         CardId: number | undefined,
-        Title: string, 
+        Title: string,
         Url: string
     }[];
 }

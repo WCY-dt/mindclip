@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useContext } from 'react';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 
+import { useNotification } from '../hooks/notificationContext';
 import { AppContext } from '../contexts/context';
 import Login from '../popups/login';
 
@@ -14,9 +15,10 @@ function Header() {
     showMobileMenu, setShowMobileMenu,
     routes,
     setToken,
-    dispatchNotification,
     searchTerm, setSearchTerm
   } = useContext(AppContext);
+
+  const setNotification = useNotification();
 
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -44,8 +46,8 @@ function Header() {
   const onClickLogout = () => {
     setLogin(false);
     setToken('');
-    localStorage.removeItem('token');
-    dispatchNotification({ type: 'SUCCESS', message: 'Logout' });
+    sessionStorage.removeItem('token');
+    setNotification({ type: 'SUCCESS', message: 'logout' });
   };
 
   return (
