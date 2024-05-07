@@ -1,4 +1,4 @@
-export function fetchAndFilterData(
+export function getCardHandler(
   dataKey: string,
   isRandom: boolean = false,
   selectedCategory: string | null = null,

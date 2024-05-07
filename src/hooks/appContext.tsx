@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { fetchCollection } from '../services/collectionFetcher';
+import { getCardCollectionHandler } from '../services/getCardCollectionHandler';
 
 export const AppContext = createContext({
   isLoading: false,
@@ -29,7 +29,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
 	useEffect(() => {
 		setLoading(true);
-		fetchCollection(setRoutes)
+		getCardCollectionHandler(setRoutes)
 			.finally(() => setLoading(false));
 	}, []);
 

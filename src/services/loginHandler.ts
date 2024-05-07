@@ -1,10 +1,10 @@
-interface LoginHandlerProps {
+interface loginHandlerProps {
     username: string;
     password: string;
     setToken: (value: string) => void;
 }
 
-async function loginHandler({ username, password, setToken }: LoginHandlerProps): Promise<boolean> {
+async function loginHandler({ username, password, setToken }: loginHandlerProps): Promise<boolean> {
     const api = process.env.REACT_APP_API_URL;
     let url = `${api}/login`;
 

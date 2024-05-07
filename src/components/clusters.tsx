@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import { AppContext } from '../hooks/appContext';
 import LinkCard from '../components/linkCard';
-import { fetchAndFilterData } from '../services/dataFetcher';
+import { getCardHandler } from '../services/getCardHandler';
 
 import './styles/clusters.css';
 import '../styles/loading.css';
@@ -23,7 +23,7 @@ function Clusters({ dataKey }: ClustersProps) {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchAndFilterData(dataKey, false, selectedCategory, searchTerm, setClusters)
+    getCardHandler(dataKey, false, selectedCategory, searchTerm, setClusters)
       .finally(() => {
 				setIsLoading(false);
 				if (needReload) {
