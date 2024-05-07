@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 
 import { useNotification } from '../hooks/notificationContext';
 import { useConfirm } from '../hooks/confirmContext';
+import { useIsLogin } from '../hooks/loginContext';
 import { useEdit } from '../hooks/editContext';
 import { AppContext } from '../hooks/appContext';
 import deleteCardHandler from '../services/deleteCardHandler';
@@ -16,12 +17,12 @@ type EditButtonProps = {
 
 const EditButton = ({ item }: EditButtonProps) => {
   const {
-    isLogin,
     token
   } = useContext(AppContext);
 
   const setNotification = useNotification();
   const setConfirm = useConfirm();
+  const [isLogin,] = useIsLogin();
   const setEdit = useEdit();
 
   const id = item.Id || 0;

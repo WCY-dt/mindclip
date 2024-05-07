@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom';
 
 import { useNotification } from '../hooks/notificationContext';
 import { AppContext } from '../hooks/appContext';
-import Login from '../popups/login';
+import { useIsLogin, useShowLogin } from '../hooks/loginContext';
 
 import '../styles/components/header.css';
 
 function Header() {
   const {
-    showLogin, setShowLogin,
-    isLogin, setLogin,
     showMobileMenu, setShowMobileMenu,
     routes,
     setToken,
@@ -19,6 +17,8 @@ function Header() {
   } = useContext(AppContext);
 
   const setNotification = useNotification();
+  const [isLogin, setIsLogin] = useIsLogin();
+  const [, setShowLogin] = useShowLogin();
 
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -44,7 +44,7 @@ function Header() {
   }
 
   const onClickLogout = () => {
-    setLogin(false);
+    setIsLogin(false);
     setToken('');
     sessionStorage.removeItem('token');
     setNotification({ type: 'SUCCESS', message: 'Logout' });
@@ -93,7 +93,6 @@ function Header() {
           </ul>
         )}
       </nav>
-      {showLogin && <Login />}
     </header>
   )
 }

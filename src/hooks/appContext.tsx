@@ -4,10 +4,6 @@ import { fetchCollection } from '../services/collectionFetcher';
 export const AppContext = createContext({
   isLoading: false,
   setLoading: (_: boolean) => {},
-  showLogin: false,
-  setShowLogin: (_: boolean) => {},
-  isLogin: false,
-  setLogin: (_: boolean) => {},
   showMobileMenu: false,
   setShowMobileMenu: (_: boolean) => {},
   needReload: false,
@@ -24,8 +20,6 @@ export const AppContext = createContext({
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	const [isLoading, setLoading] = useState<boolean>(true);
-  const [showLogin, setShowLogin] = useState<boolean>(false);
-	const [isLogin, setLogin] = useState<boolean>(false);
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
 	const [needReload, setNeedReload] = useState<boolean>(false);
 	const [routes, setRoutes] = useState({});
@@ -40,21 +34,12 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	}, []);
 
 	useEffect(() => {
-    if (sessionStorage.getItem('token')) {
-			setLogin(true);
-      setToken(sessionStorage.getItem('token') as string);
-		}
-	}, []);
-
-	useEffect(() => {
 		sessionStorage.removeItem('colorMap');
 	}, []);
 
 	return (
 		<AppContext.Provider value={{
 			isLoading, setLoading,
-      showLogin, setShowLogin,
-			isLogin, setLogin,
       showMobileMenu, setShowMobileMenu,
 			needReload, setReload: setNeedReload,
 			routes, setRoutes,
