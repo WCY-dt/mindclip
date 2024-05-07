@@ -1,55 +1,80 @@
 .Clusters-title {
-    text-transform: capitalize;
-    font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+.Clusters-title-text {
+  text-transform: capitalize;
+  font-weight: 900;
+}
+
+.linkcard-add {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  color: #666666;
+  gap: 5px;
+  font-size: 3rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.linkcard-add:hover {
+  color: black;
+  transition: color 0.3s;
 }
 
 .Clusters-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-    justify-items: stretch;
-    padding: 20px;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  justify-items: stretch;
+  padding: 20px;
+  gap: 20px;
 }
 
 .Clusters-list .link-card {
-    flex: 0 0 350px;
-    height: 375px;
+  flex: 0 0 350px;
+  height: 375px;
 }
 
 .Clusters-cancel-filter {
-    position: fixed;
-    bottom: 60px;
-    right: 60px;
+  position: fixed;
+  bottom: 60px;
+  right: 60px;
 
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 
-    border: none;
-    background-color: #000;
-    color: #fff;
-    font-size: 30px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  font-size: 30px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    opacity: 0.4;
-    transition: opacity 0.3s;
+  opacity: 0.4;
+  transition: opacity 0.3s;
 }
 
 .Clusters-cancel-filter:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 @media (max-width: 800px) {
-    .Clusters-cancel-filter {
-        opacity: 0.8;
-        bottom: 30px;
-        right: 30px;
-    }
+  .Clusters-cancel-filter {
+    opacity: 0.8;
+    bottom: 30px;
+    right: 30px;
+  }
 }

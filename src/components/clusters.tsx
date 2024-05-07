@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { Icon } from '@iconify/react';
 
 import { AppContext } from '../hooks/appContext';
+import { useIsLogin } from '../hooks/loginContext';
+import { useEdit } from '../hooks/editContext';
 import LinkCard from '../components/linkCard';
 import { getCardHandler } from '../services/getCardHandler';
 
@@ -17,6 +20,9 @@ function Clusters({ dataKey }: ClustersProps) {
 		selectedCategory,
 		searchTerm
 	} = useContext(AppContext);
+
+  const [isLogin,] = useIsLogin();
+  const setEdit = useEdit();
 
   const [clusters, setClusters] = useState<ClusterProps[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -38,9 +44,31 @@ function Clusters({ dataKey }: ClustersProps) {
     );
   }
 
+  const onClickNew = () => {
+    setEdit({
+      type: 'ADD',
+      cluster: {
+        Id: undefined,
+        Collection: dataKey,
+        Title: '',
+        Url: '',
+        Category: '',
+        Description: '',
+        Detail: '',
+        links: []
+      }
+    });
+  };
+
   return (
     <>
-      <h1 className="Clusters-title">{dataKey}</h1>
+      <div className="Clusters-title">
+        <h1 className="Clusters-title-text">{dataKey}</h1>
+        { isLogin ?
+          <Icon icon="ci:add-to-queue" className="linkcard-add" onClick={onClickNew} />
+          : null
+        }
+      </div>
       <div className="Clusters-list">
         {clusters.length > 0 ? (
           clusters.map((cluster: ClusterProps) => (

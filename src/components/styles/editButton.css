@@ -12,6 +12,7 @@
 
 .link-card-edit:hover {
   color: black;
+  transition: color 0.3s;
 }
 
 .link-card-edit-delete {

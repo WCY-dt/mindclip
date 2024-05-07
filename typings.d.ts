@@ -1,5 +1,5 @@
 type LinkProps = {
-  Id: number | undefined;
+  Id: number;
   CardId: number | undefined;
   Title: string;
   Url: string;
@@ -15,3 +15,8 @@ type ClusterProps = {
   Detail: string;
   links: LinkProps[];
 }
+
+type EditProps = {
+  type: 'ADD' | 'MODIFY';
+  cluster: ClusterProps;
+};
