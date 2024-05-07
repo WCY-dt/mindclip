@@ -15,7 +15,6 @@ interface LinkCardProps {
 function LinkCard({ item }: LinkCardProps) {
 	const {
 		isLogin,
-    setReload,
 		token,
     dispatchNotification,
 		setShowConfirm,
