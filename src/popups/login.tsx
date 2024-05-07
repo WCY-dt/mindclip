@@ -26,9 +26,9 @@ function Login() {
       setShowLogin(false);
       sessionStorage.setItem('token', token);
       setLogin(true);
-      setNotification({ type: 'SUCCESS', message: 'login' });
+      setNotification({ type: 'SUCCESS', message: 'Login' });
     } else {
-      setNotification({ type: 'ERROR', message: 'login' });
+      setNotification({ type: 'ERROR', message: 'Login' });
     }
   };
 

@@ -1,34 +1,20 @@
 import React, { useContext } from 'react';
-import { Icon } from '@iconify/react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { useNotification } from '../hooks/notificationContext';
 import { AppContext } from '../contexts/context';
+import EditButton from '../components/editButton';
 import { getRandomColor, getContrastColor } from '../utils/randomColor';
-import deleteCardHandler from '../services/deleteCardHandler';
 
 import '../styles/components/linkCard.css';
 
-interface LinkCardProps {
+type LinkCardProps = {
   item: ClusterProps;
 }
 
 function LinkCard({ item }: LinkCardProps) {
 	const {
-		isLogin,
-		token,
-		setShowConfirm,
-		setConfirmMessage,
-		setConfirmAction,
-		setSelectedCategory,
-    setShowEdit,
-    setEditContent,
-    setEditType
+		setSelectedCategory
 	} = useContext(AppContext);
-
-  const setNotification = useNotification();
-
-	const id = item.Id || 0;
 
   const backgroundColor = getRandomColor(item.Category);
   const textColor = getContrastColor(backgroundColor);
@@ -36,28 +22,6 @@ function LinkCard({ item }: LinkCardProps) {
   const handleCategoryClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setSelectedCategory(item.Category);
-  };
-
-  const onClickEdit = () => {
-    setEditContent(item);
-    setEditType('modify');
-    setShowEdit(true);
-  };
-
-	const tryDeleteCard = async (id: number) => {
-    const deleteCardResult = await deleteCardHandler({ id, token });
-
-    if (deleteCardResult === true) {
-      setNotification({ type: 'SUCCESS', message: 'Card delete' });
-    } else {
-      setNotification({ type: 'ERROR', message: 'Card delete' });
-    }
-  };
-
-  const onClickDelete = () => {
-    setConfirmMessage('Are you sure to delete this card?');
-    setConfirmAction(() => () => {tryDeleteCard(id);});
-    setShowConfirm(true);
   };
 
   return (
@@ -77,13 +41,7 @@ function LinkCard({ item }: LinkCardProps) {
               />
             </div>
           </div>
-          {isLogin ? (
-            <div className="link-card-edit">
-              <Icon icon="ci:edit-pencil-line-01" className="link-card-edit-edit" onClick={onClickEdit}></Icon>
-              <Icon icon="ci:trash-full" className="link-card-edit-delete" onClick={onClickDelete}></Icon>
-            </div>
-          ) : null
-          }
+          <EditButton item={item} />
         </div>
 
         <a

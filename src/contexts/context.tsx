@@ -16,12 +16,6 @@ export const AppContext = createContext({
 	setRoutes: (_: {[_: string]: React.ReactNode}) => {},
   token: '',
   setToken: (_: string) => {},
-  showConfirm: false,
-	setShowConfirm: (_: boolean) => {},
-	confirmMessage: '',
-	setConfirmMessage: (_: string) => {},
-	confirmAction: () => {},
-	setConfirmAction: (_: () => void) => {},
   showEdit: false,
   setShowEdit: (_: boolean) => {},
   editContent: null as ClusterProps | null,
@@ -42,9 +36,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	const [needReload, setNeedReload] = useState<boolean>(false);
 	const [routes, setRoutes] = useState({});
 	const [token, setToken] = useState<string>('');
-	const [showConfirm, setShowConfirm] = useState<boolean>(false);
-	const [confirmMessage, setConfirmMessage] = useState<string>('');
-	const [confirmAction, setConfirmAction] = useState<() => void>(() => () => {});
   const [showEdit, setShowEdit] = useState<boolean>(false);
   const [editContent, setEditContent] = useState<ClusterProps | null>(null);
   const [editType, setEditType] = useState<'new' | 'modify'>('new');
@@ -77,9 +68,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 			needReload, setReload: setNeedReload,
 			routes, setRoutes,
 			token, setToken,
-			showConfirm, setShowConfirm,
-			confirmMessage, setConfirmMessage,
-			confirmAction, setConfirmAction,
       showEdit, setShowEdit,
       editContent, setEditContent,
       editType, setEditType,

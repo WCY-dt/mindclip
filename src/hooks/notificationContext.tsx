@@ -7,7 +7,7 @@ type NotificationAction = {
   message: string;
 };
 
-interface NotificationContextType {
+type NotificationContextType = {
   notification: NotificationAction;
   updateNotification: (action: NotificationAction) => void;
 }

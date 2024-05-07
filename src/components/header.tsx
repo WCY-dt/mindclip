@@ -47,7 +47,7 @@ function Header() {
     setLogin(false);
     setToken('');
     sessionStorage.removeItem('token');
-    setNotification({ type: 'SUCCESS', message: 'logout' });
+    setNotification({ type: 'SUCCESS', message: 'Logout' });
   };
 
   return (

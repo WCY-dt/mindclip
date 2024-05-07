@@ -1,16 +1,19 @@
 import React, { useState, useContext, useEffect } from "react";
 
 import { AppContext } from "../contexts/context";
+import { useShowConfirm } from "../hooks/confirmContext";
+import { useShowEdit } from "../hooks/editContext";
 import "../styles/popups/overlay.css";
 
 
 function Overlay() {
   const {
     showLogin, setShowLogin,
-    showMobileMenu, setShowMobileMenu,
-    showConfirm, setShowConfirm,
-    showEdit, setShowEdit
+    showMobileMenu, setShowMobileMenu
   } = useContext(AppContext);
+
+  const [showConfirm, setShowConfirm] = useShowConfirm();
+  const [showEdit, setShowEdit] = useShowEdit();
 
   const [showOverlay, setShowOverlay] = useState<boolean>(false);
 
