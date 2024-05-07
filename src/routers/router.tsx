@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import { AppContext, AppProvider } from '../contexts/context';
+import { AppContext, AppProvider } from '../hooks/appContext';
 import { NotificationProvider } from '../hooks/notificationContext';
 import { ConfirmProvider } from '../hooks/confirmContext';
 import { EditProvider } from '../hooks/editContext';

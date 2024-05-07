@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 
-import { AppContext } from '../contexts/context';
+import { AppContext } from '../hooks/appContext';
 import LinkCard from '../components/linkCard';
 import { fetchAndFilterData } from '../services/dataFetcher';
 

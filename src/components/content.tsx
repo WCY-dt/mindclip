@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { AppContext } from '../contexts/context';
+import { AppContext } from '../hooks/appContext';
 import Cluster from '../components/clusters';
 
 import '../styles/components/content.css';

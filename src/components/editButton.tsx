@@ -5,7 +5,7 @@ import { Icon } from '@iconify/react';
 import { useNotification } from '../hooks/notificationContext';
 import { useConfirm } from '../hooks/confirmContext';
 import { useEdit } from '../hooks/editContext';
-import { AppContext } from '../contexts/context';
+import { AppContext } from '../hooks/appContext';
 import deleteCardHandler from '../services/deleteCardHandler';
 
 import '../styles/components/editButton.css';

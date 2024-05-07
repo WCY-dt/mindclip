@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { Icon } from '@iconify/react';
 
-import { AppContext } from "../contexts/context";
+import { AppContext } from "./appContext";
 
 import "../styles/popups/popup.css";
 import "../styles/popups/edit.css";

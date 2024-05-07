@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { Icon } from '@iconify/react';
 
-import { AppContext } from '../contexts/context';
+import { AppContext } from '../hooks/appContext';
 
 function useKeyboardEvent(key: string, callback: Function) {
     useEffect(() => {

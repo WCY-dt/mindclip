@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 
-import { AppContext } from "../contexts/context";
+import { AppContext } from "../hooks/appContext";
 import { useShowConfirm } from "../hooks/confirmContext";
 import { useShowEdit } from "../hooks/editContext";
 import "../styles/popups/overlay.css";

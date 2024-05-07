@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 
 import { useNotification } from '../hooks/notificationContext';
-import { AppContext } from '../contexts/context';
+import { AppContext } from '../hooks/appContext';
 import Login from '../popups/login';
 
 import '../styles/components/header.css';

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Icon } from '@iconify/react';
 
 import { useNotification } from '../hooks/notificationContext';
-import { AppContext } from '../contexts/context';
+import { AppContext } from '../hooks/appContext';
 import loginHandler from '../services/loginHandler';
 
 import '../styles/popups/popup.css';

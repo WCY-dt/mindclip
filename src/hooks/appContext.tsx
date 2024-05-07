@@ -16,12 +16,6 @@ export const AppContext = createContext({
 	setRoutes: (_: {[_: string]: React.ReactNode}) => {},
   token: '',
   setToken: (_: string) => {},
-  showEdit: false,
-  setShowEdit: (_: boolean) => {},
-  editContent: null as ClusterProps | null,
-  setEditContent: (_: ClusterProps | null) => {},
-  editType: 'new' as 'new' | 'modify',
-  setEditType: (_: 'new' | 'modify') => {},
 	selectedCategory: null as string | null,
 	setSelectedCategory: (_: string | null) => {},
   searchTerm: '',
@@ -36,9 +30,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 	const [needReload, setNeedReload] = useState<boolean>(false);
 	const [routes, setRoutes] = useState({});
 	const [token, setToken] = useState<string>('');
-  const [showEdit, setShowEdit] = useState<boolean>(false);
-  const [editContent, setEditContent] = useState<ClusterProps | null>(null);
-  const [editType, setEditType] = useState<'new' | 'modify'>('new');
 	const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 	const [searchTerm, setSearchTerm] = useState('');
 
@@ -68,9 +59,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 			needReload, setReload: setNeedReload,
 			routes, setRoutes,
 			token, setToken,
-      showEdit, setShowEdit,
-      editContent, setEditContent,
-      editType, setEditType,
 			selectedCategory, setSelectedCategory,
 			searchTerm, setSearchTerm
 		}}>

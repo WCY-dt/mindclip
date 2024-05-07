@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { AppContext } from '../contexts/context';
+import { AppContext } from '../hooks/appContext';
 import EditButton from '../components/editButton';
 import { getRandomColor, getContrastColor } from '../utils/randomColor';
 
