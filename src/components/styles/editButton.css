@@ -24,7 +24,7 @@
 }
 
 .link-card-edit-delete:hover {
-  background-color: var(--button-red-bg-hover);
+  background-color: var(--button-red-bg-hover-color);
   box-shadow: 0 0 10px var(--shadow-small);
   transition: box-shadow 0.1s;
 }

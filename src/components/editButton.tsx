@@ -35,14 +35,22 @@ const EditButton = ({ item }: EditButtonProps) => {
   };
 
   const deleteCardAction = async (id: number) => {
-    const deleteCardResult = await deleteCardHandler({ id, token });
+    try {
+      const deleteCardResult = await deleteCardHandler({ id, token });
 
-    if (deleteCardResult === true) {
-      setNotification({
-        type: 'SUCCESS',
-        message: 'Card delete'
-      });
-    } else {
+      if (deleteCardResult === true) {
+        setNotification({
+          type: 'SUCCESS',
+          message: 'Card delete'
+        });
+      } else {
+        setNotification({
+          type: 'ERROR',
+          message: 'Card delete'
+        });
+      }
+    } catch (e) {
+      console.error(`Error: ${(e as Error).message}`);
       setNotification({
         type: 'ERROR',
         message: 'Card delete'

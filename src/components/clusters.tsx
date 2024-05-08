@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react';
 
 import { AppContext } from '../hooks/appContext';
 import { useIsLogin } from '../hooks/loginContext';
+import { useNotification } from '../hooks/notificationContext';
 import { useEdit } from '../hooks/editContext';
 import LinkCard from '../components/linkCard';
 import { getCardHandler } from '../services/getCardHandler';
@@ -23,6 +24,7 @@ function Clusters({ dataKey }: ClustersProps) {
 
   const [isLogin,] = useIsLogin();
   const setEdit = useEdit();
+  const setNotification = useNotification();
 
   const [clusters, setClusters] = useState<ClusterProps[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -35,7 +37,14 @@ function Clusters({ dataKey }: ClustersProps) {
 				if (needReload) {
 					setNeedReload(false);
 				}
-			});
+			})
+      .catch((e) => {
+        console.error(`Error: ${(e as Error).message}`);
+        setNotification({
+          type: 'ERROR',
+          message: 'Data fetch'
+        });
+      });
   }, [dataKey, selectedCategory, searchTerm, needReload, setNeedReload]);
 
   if (isLoading) {
