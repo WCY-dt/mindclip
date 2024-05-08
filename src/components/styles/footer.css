@@ -14,12 +14,12 @@
   margin: 0;
   font-size: 0.8em;
   font-weight: 700;
-  color: var(--text-link-color);
+  color: var(--text-color);
 }
 
 .App-footer-text a {
   text-decoration: none;
-  color: var(--text);
+  color: var(--text-link-color);
 }
 
 .App-footer-text a:hover {
