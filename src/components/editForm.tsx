@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Icon } from '@iconify/react';
 
-import { AppContext } from "../hooks/appContext";
 import { useConfirm } from "../hooks/confirmContext";
 import { useNotification } from "../hooks/notificationContext";
-import putCardHandler from "../services/putCardHandler";
-import postCardHandler from "../services/postCardHandler";
-import deleteLinkHandler from '../services/deleteLinkHandler';
+import { useCardActions } from '../hooks/cardContext';
+import LinkList from '../components/linkList';
 
 import "../hooks/styles/popup.css";
 import "../hooks/styles/edit.css";
@@ -18,13 +16,9 @@ type EditFormProps = {
 }
 
 const EditForm = ({ edit, routesArray, setShowEdit }: EditFormProps) => {
-  const {
-    token,
-    setReload
-  } = useContext(AppContext);
-
   const setConfirm = useConfirm();
   const setNotification = useNotification();
+  const { saveCardAction } = useCardActions();
 
   const [id, setId] = useState<number | undefined>(0);
   const [collection, setCollection] = useState<string>('');
@@ -36,7 +30,6 @@ const EditForm = ({ edit, routesArray, setShowEdit }: EditFormProps) => {
   const [links, setLinks] = useState<LinkProps[]>([]);
 
   const newLinkBaseId = 10000;
-  const [newLinkCount, setNewLinkCount] = useState<number>(newLinkBaseId);
 
   useEffect(() => {
     setId(edit.cluster.Id as number);
@@ -53,69 +46,42 @@ const EditForm = ({ edit, routesArray, setShowEdit }: EditFormProps) => {
     setShowEdit(false);
   }, [setShowEdit]);
 
-  const saveCardAction = async (cluster: ClusterProps) => {
-    let saveCardResult;
-    if (edit.type === 'MODIFY') {
-      saveCardResult = await putCardHandler({ cluster, token });
-    } else if (edit.type === 'ADD') {
-      saveCardResult = await postCardHandler({ cluster, token });
-    }
+  const checkRequiredFields = (fields: string[]): boolean => {
+    return fields.some(field => field === '');
+  }
 
-    if (saveCardResult === true) {
-      setShowEdit(false);
-      setNotification({
-        type: 'SUCCESS',
-        message: 'Card saved'
-      });
-      setReload(true);
-    } else {
-      setNotification({
-        type: 'ERROR',
-        message: 'Card saved'
-      });
-    }
+  const checkValidUrl = (urls: string[]): boolean => {
+    return urls.some(url => {
+      try {
+        new URL(url);
+      } catch {
+        return true;
+      }
+      return false;
+    });
   }
 
   const onClickSave = () => {
-    // 检查是否有未填写的必填项
-    if (collection === '' || title === '' || url === '' || category === '' || description === '') {
+    const requiredFields = [collection, title, url, category, description];
+    const linkFields = links.map(link => [link.Title, link.Url]).flat();
+    const urls = [url, ...links.map(link => link.Url)];
+
+    if (checkRequiredFields(requiredFields) || checkRequiredFields(linkFields)) {
       setNotification({
         type: 'ERROR',
         message: 'Unfilled fields detected. Save'
       });
       return;
     }
-    for (const link of links) {
-      if (link.Title === '' || link.Url === '') {
-        setNotification({
-          type: 'ERROR',
-          message: 'Unfilled fields detected. Save'
-        });
-        return;
-      }
-    }
 
-    // 检查url是否合法
-    try {
-      new URL(url);
-    } catch {
+    if (checkValidUrl(urls)) {
       setNotification({
         type: 'ERROR',
         message: 'Invalid URL. Save'
       });
       return;
     }
-    for (const link of links) {
-      try {
-        new URL(link.Url);
-      } catch {
-        setNotification({
-          type: 'ERROR',
-          message: 'Invalid URL. Save'
-        });
-        return;
-      }
-    }
+
     const cluster: ClusterProps = {
       Id: id,
       Collection: collection,
@@ -127,83 +93,10 @@ const EditForm = ({ edit, routesArray, setShowEdit }: EditFormProps) => {
       links: links,
     };
 
-    console.log('cluster:', cluster);
-
     setConfirm({
       message: 'Are you sure to save the edit?',
-      confirmAction: () => saveCardAction(cluster)
+      confirmAction: () => saveCardAction(cluster, id ? 'MODIFY' : 'ADD')
     });
-  }
-
-  const onClickAddLink = () => {
-    setNewLinkCount(newLinkCount + 1);
-    const newLinks = [...links, {
-      Id: newLinkCount,
-      CardId: id || undefined,
-      Title: '',
-      Url: ''
-    }];
-    setLinks(newLinks);
-  }
-
-  const deleteLinkAction = async (id: number) => {
-    if (id === undefined) {
-      return;
-    }
-
-    const deleteLinkResult = await deleteLinkHandler({ id, token });
-
-    if (deleteLinkResult === true) {
-      setNotification({
-        type: 'SUCCESS',
-        message: 'Link delete'
-      });
-      setReload(true);
-
-      const links = document.getElementById(id.toString());
-      if (links) {
-        links.remove();
-      }
-    } else {
-      setNotification({
-        type: 'ERROR',
-        message: 'Link delete'
-      });
-    }
-  }
-
-  const onClickDeleteLink = (type: 'MODIFYLINK' | 'NEWLINK', id: number) => {
-    if (type === 'MODIFYLINK') {
-      setConfirm({
-        message: 'Are you sure to delete this link?',
-        confirmAction: () => deleteLinkAction(id as number)
-      });
-    } else if (type === 'NEWLINK') {
-      const newLinks = links.filter((link) => link.Id !== id);
-      setLinks(newLinks);
-    }
-  }
-
-  const onChangeLinkTitle = (id: number, title: string) => {
-    const newLinks = links.map((link) => {
-      if (link.Id === id) {
-        return { ...link, Title: title };
-      }
-      return link;
-    });
-
-    setLinks(newLinks);
-  }
-
-  const onChangeLinkUrl = (id: number, url: string) => {
-    const newLinks = links.map((link) => {
-      if (link.Id === id) {
-        return { ...link, Url: url };
-      }
-      return link;
-    });
-
-    setLinks(newLinks);
   }
 
   return (
@@ -214,7 +107,7 @@ const EditForm = ({ edit, routesArray, setShowEdit }: EditFormProps) => {
         <input type="text" id="id" name="id" defaultValue={id} hidden />
 
         <label htmlFor="collection">Collection</label>
-        <select id="collection" name="collection"
+        <select id="collection" name="collection" required
           defaultValue={collection}
           onChange={(e) => setCollection(e.target.value)}
         >
@@ -226,25 +119,25 @@ const EditForm = ({ edit, routesArray, setShowEdit }: EditFormProps) => {
         </select>
 
         <label htmlFor="title">Title</label>
-        <input type="text" id="title" name="title"
+        <input type="text" id="title" name="title" required
           defaultValue={title}
           onChange={(e) => setTitle(e.target.value)}
         />
 
         <label htmlFor="url">Url</label>
-        <input type="url" id="url" name="url"
+        <input type="url" id="url" name="url" required
           defaultValue={url}
           onChange={(e) => setUrl(e.target.value)}
         />
 
         <label htmlFor="category">Category</label>
-        <input type="text" id="category" name="category"
+        <input type="text" id="category" name="category" required
           defaultValue={category}
           onChange={(e) => setCategory(e.target.value)}
         />
 
         <label htmlFor="description">Description</label>
-        <input type="text" id="description" name="description"
+        <input type="text" id="description" name="description" required
           defaultValue={description}
           onChange={(e) => setDescription(e.target.value)}
         />
@@ -256,35 +149,8 @@ const EditForm = ({ edit, routesArray, setShowEdit }: EditFormProps) => {
         />
 
         <label htmlFor="links">Links</label>
-        <div className="Edit-links">
-          {links.map((link) => {
-            const linkType = (link.Id >= newLinkBaseId ? 'NEWLINK' : 'MODIFYLINK');
-            return (
-              <div key={link.Id} className="Edit-link" id={link.Id.toString()}>
-                <input type="text" name="link-id" defaultValue={link.Id} hidden />
-                <input type="text" name="link-card-id" defaultValue={link.CardId} hidden />
-                <input
-                  type="text"
-                  name="link-title"
-                  className="Edit-link-title"
-                  defaultValue={link.Title}
-                  title="Link Title"
-                  onChange={(e) => onChangeLinkTitle(link.Id, e.target.value)}
-                />
-                <input
-                  type="url"
-                  name="link-url"
-                  className="Edit-link-url"
-                  defaultValue={link.Url}
-                  title="Link URL"
-                  onChange={(e) => onChangeLinkUrl(link.Id, e.target.value)}
-                />
-                <Icon icon="ci:trash-full" className="Edit-link-delete" onClick={() => onClickDeleteLink(linkType, link.Id)}></Icon>
-              </div>
-            )
-          })}
-          <Icon icon="ci:table-add" className="Edit-links-add" onClick={onClickAddLink}></Icon>
-        </div>
+        <LinkList id={id} links={links} setLinks={setLinks} newLinkBaseId={newLinkBaseId} />
+
       </div>
       <button type="button" className="Edit-ok" title="Save edit" onClick={onClickSave}>
         Save
