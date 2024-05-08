@@ -16,7 +16,7 @@
   flex-direction: column;
   justify-content: end;
   align-items: center;
-  color: #666666;
+  color: var(--button-gray-text-color);
   gap: 5px;
   font-size: 3rem;
   width: 100%;
@@ -24,7 +24,7 @@
 }
 
 .linkcard-add:hover {
-  color: black;
+  color: var(--button-gray-text-hover-color);
   transition: color 0.3s;
 }
 
@@ -53,8 +53,8 @@
   border-radius: 50%;
 
   border: none;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--button-black-bg-color);
+  color: var(--button-black-text-color);
   font-size: 30px;
 
   display: flex;

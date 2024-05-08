@@ -23,16 +23,16 @@
 }
 
 .Confirm-button:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px var(--shadow-big-color);
   transition: box-shadow 0.1s;
 }
 
 .Confirm-button-cancel {
-  background-color: #333333;
-  color: white;
+  background-color: var(--button-dark-bg-color);
+  color: var(--button-dark-text-color);
 }
 
 .Confirm-button-ok {
-  background-color: #f5f5f5;
-  color: black;
+  background-color: var(--button-light-bg-color);
+  color: var(--button-light-text-color);
 }

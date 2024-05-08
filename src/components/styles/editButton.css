@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: end;
   align-items: center;
-  color: #666666;
+  color: var(--button-gray-text-color);
   gap: 5px;
   font-size: 1.5rem;
   width: 100%;
@@ -11,20 +11,20 @@
 }
 
 .link-card-edit:hover {
-  color: black;
+  color: var(--button-gray-text-hover-color);
   transition: color 0.3s;
 }
 
 .link-card-edit-delete {
-  color: white;
-  background-color: rgba(255, 0, 0, 0.5);
+  color: var(--button-red-text-color);
+  background-color: var(--button-red-bg-color);
   padding: 0.5rem;
   margin: 4px;
   border-radius: 5px;
 }
 
 .link-card-edit-delete:hover {
-  background-color: rgba(255, 0, 0, 1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: var(--button-red-bg-hover);
+  box-shadow: 0 0 10px var(--shadow-small);
   transition: box-shadow 0.1s;
 }

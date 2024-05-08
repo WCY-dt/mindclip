@@ -1,138 +1,139 @@
 .link-card {
-    display: grid;
-    grid-template-columns: 3rem 5fr;
-
-    align-items: start;
-
-    text-align: left;
-    text-decoration: none;
-    color: #000;
-
-    width: 100%;
-    max-width: 350px;
-    height: 100%;
-
-    padding: 0;
-
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 3rem 5fr;
+  align-items: start;
+  width: 100%;
+  max-width: 350px;
+  height: 100%;
+  padding: 0;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  text-decoration: none;
+  color: #000;
 }
 
 .link-card:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s;
 }
 
 .link-card-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-
-    height: 100%;
-
-    padding: 0;
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .link-card-right {
-    display: grid;
-    grid-template-rows: auto auto 1fr;
-    grid-gap: 1rem;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  grid-gap: 1rem;
+  height: calc(100% - 2rem);
+  padding: 1rem;
+  background-color: #f5f5f5;
+  text-decoration: none;
+  color: black;
+  overflow-y: auto;
+}
 
-    height: calc(100% - 2rem);
+.link-card-right::-webkit-scrollbar {
+  width: 5px;
+}
 
-    background-color: #f5f5f5;
+.link-card-right::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+}
 
-    padding: 1rem;
+.link-card-right::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 5px;
+}
 
-    text-decoration: none;
-    color: black;
+.link-card:hover .link-card-right::-webkit-scrollbar-thumb {
+  background: #555;
 }
 
 .link-card-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
 }
 
 .link-card-category {
-    grid-row: 1 / 6;
-    grid-column: 1 / 2;
-
-    font-size: 1rem;
-    font-weight: 700;
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-    color: #000;
-
-    padding: 1rem;
-
-    text-align: center;
-
-    white-space: pre-wrap;
-    word-break: break-all;
-    text-transform: uppercase;
-
-    border-top-left-radius: 5px;
-
-    cursor: pointer;
+  grid-row: 1 / 6;
+  grid-column: 1 / 2;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  color: #000;
+  padding: 1rem;
+  text-align: center;
+  white-space: pre-wrap;
+  word-break: break-all;
+  text-transform: uppercase;
+  border-top-left-radius: 5px;
+  cursor: pointer;
 }
 
 .link-card-icon-img {
-    width: 2rem;
-    height: 2rem;
-    margin: 0;
-    margin-top: 0.5rem;
-    padding: 0;
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
+  margin-top: 0.5rem;
+  padding: 0;
 }
 
 .link-card-title {
-    max-width: 270px;
-    font-size: 1.5rem;
-    font-weight: 900;
-    overflow-wrap: break-word;
+  max-width: 270px;
+  font-size: 1.5rem;
+  font-weight: 900;
+  overflow-wrap: break-word;
 }
 
 .link-card-description {
-    max-width: 270px;
-    font-size: 1rem;
-    font-weight: 700;
-    overflow-wrap: break-word;
+  max-width: 270px;
+  font-size: 1rem;
+  font-weight: 700;
+  overflow-wrap: break-word;
 }
 
 .link-card-detail {
-    max-width: 270px;
-    font-size: 1rem;
-    font-weight: 400;
-    overflow-wrap: break-word;
+  max-width: 270px;
+  font-size: 1rem;
+  font-weight: 400;
+  overflow-wrap: break-word;
 }
 
 .link-card-link {
-    grid-row: 5 / 6;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: start;
+  grid-row: 5 / 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: start;
 }
 
 .link-card-link a {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #000;
-    text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none;
 }
 
 .link-card-link a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .link-card-link a::before {
-    content: "🔗";
-    font-size: 1rem;
-    margin-right: 0.2rem;
-    color: #000;
+  content: "🔗";
+  font-size: 1rem;
+  margin-right: 0.2rem;
+  color: #000;
 }
