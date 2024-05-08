@@ -45,7 +45,7 @@ function Clusters({ dataKey }: ClustersProps) {
           message: 'Data fetch'
         });
       });
-  }, [dataKey, selectedCategory, searchTerm, needReload, setNeedReload]);
+  }, [dataKey, selectedCategory, searchTerm, needReload, setNeedReload, setNotification]);
 
   if (isLoading) {
     return (
